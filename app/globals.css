@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 品牌青 —— 主色 */
+  --color-brand-900: #003d45;
+  --color-brand-800: #00505c;
+  --color-brand-700: #00707f;
+  --color-brand-600: #008090;
+  --color-brand-500: #00a0b4;
+  --color-brand-400: #33b7c6;
+  --color-brand-200: #b8dfe4;
+  --color-brand-100: #dff3f6;
+  --color-brand-50: #f2fafb;
+
+  /* 琥珀 —— CTA 强调 */
+  --color-amber-700: #9a6600;
+  --color-amber-600: #c08000;
+  --color-amber-500: #e0a020;
+  --color-amber-400: #f0c04a;
+  --color-amber-100: #fbebc8;
+
+  /* 叶绿 —— 点缀 */
+  --color-leaf-600: #7e9400;
+  --color-leaf-500: #8fa80e;
+  --color-leaf-100: #eff6d6;
+
+  /* 中性 */
+  --color-ink: #16323a;
+  --color-sub: #576b73;
+  --color-line: #e5ebec;
+  --color-surface: #f1f5f6;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-amber-400);
+  color: var(--color-brand-900);
 }
