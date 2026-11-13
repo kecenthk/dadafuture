@@ -6,9 +6,9 @@ import PageHero from "@/components/PageHero";
 import { BRAND } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "联系我们",
+  title: "联系我们｜工厂出海合作咨询 · 独立站与投放方案 · 沙龙报名",
   description:
-    "联系搭搭未来：刘女士 185 0208 8258（微信同号）。免费获取出海方案、领取价值 199 元外贸资料包、报名「出海 + AI」线下实战沙龙。表单字段：公司 / 爆款产品 SKU / 目标市场 / 年度预算 / 当前卡点。",
+    "联系搭搭未来：十月 · 项目负责 137 2672 4687（微信同号），免费获取出海方案、领取价值 199 元外贸资料包、报名「出海 + AI」线下实战沙龙。提交表单（公司 / 爆款 SKU / 目标市场 / 年度预算 / 当前卡点），我们会在 1 个工作日内给出初步建议。",
 };
 
 export default function ContactPage() {
@@ -27,7 +27,9 @@ export default function ContactPage() {
               <p className="mt-4 flex items-center gap-3 text-white">
                 <Phone className="h-5 w-5 shrink-0 text-amber-600" />
                 <span>
-                  <span className="block text-xs text-brand-200">{BRAND.contactName}（微信同号）</span>
+                  <span className="block text-xs text-brand-200">
+                    {BRAND.contactName} · {BRAND.contactTitle}（微信同号）
+                  </span>
                   <span className="block text-xl font-black tracking-wide">{BRAND.contactPhone}</span>
                 </span>
               </p>
@@ -35,6 +37,21 @@ export default function ContactPage() {
                 <MessageCircle className="h-5 w-5 shrink-0 text-leaf-600" />
                 <span className="text-sm text-brand-100">添加微信请备注「出海方案」优先通过</span>
               </p>
+              <div className="mt-5 flex items-center gap-4 border-t border-white/20 pt-5">
+                <div className="w-[104px] shrink-0 rounded-[10px] bg-white p-1.5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={BRAND.wechatQr}
+                    alt={`微信二维码 · 扫码联系${BRAND.contactName}`}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <p className="text-xs leading-relaxed text-brand-100">
+                  微信扫码添加
+                  <br />
+                  {BRAND.contactName} · {BRAND.contactTitle}
+                </p>
+              </div>
             </div>
             <div className="rounded-[14px] bg-white p-6 ring-1 ring-line">
               <h2 className="font-bold text-brand-900">我们能为您做什么</h2>

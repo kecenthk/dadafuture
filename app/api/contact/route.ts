@@ -13,7 +13,7 @@ export async function POST(req: Request) {
         );
       }
     }
-    // TODO: 接入 CRM / 邮件通知（刘女士 185 0208 8258）
+    // TODO: 接入 CRM / 邮件通知（十月 137 2672 4687）
     console.log("[contact] new lead:", {
       company: body.company,
       product: body.product,

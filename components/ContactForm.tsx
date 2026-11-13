@@ -66,7 +66,7 @@ export default function ContactForm() {
           <br />
           也可以直接添加微信：
           <span className="font-semibold text-amber-700">
-            {BRAND.contactName} {BRAND.contactPhone}（微信同号）
+            {BRAND.contactName} · {BRAND.contactTitle} {BRAND.contactPhone}（微信同号）
           </span>
         </p>
       </div>

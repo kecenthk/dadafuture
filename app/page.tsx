@@ -376,7 +376,7 @@ function WhyUs() {
           </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {TEAM.map((t) => (
+          {TEAM.slice(0, 4).map((t) => (
             <div
               key={t.name}
               className="overflow-hidden rounded-[14px] bg-white ring-1 ring-line transition hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,128,144,0.12)]"
@@ -385,7 +385,7 @@ function WhyUs() {
               <img
                 src={t.image}
                 alt={t.name}
-                className="h-44 w-full object-cover"
+                className="h-44 w-full object-cover object-top"
                 loading="lazy"
               />
               <div className="p-5">
@@ -459,10 +459,10 @@ function Training() {
             <div>
               <p className="text-xs font-bold tracking-widest text-amber-400">下期预告</p>
               <h3 className="mt-2 text-xl font-bold text-white">
-                「出海 + AI」线下实战沙龙 · 半天六段
+                「出海 + AI」线下实战沙龙 · 第 2 期
               </h3>
               <p className="mt-2 text-sm text-brand-100">
-                ¥998/人 · 审核制仅 18 席 · 含半天共创、资料包、工具表、茶歇
+                11 月 19 日（周四）13:00–17:30 · ¥1980/人 · 仅 20 席 · 含工具包与课后 1 次 1v1 诊断
               </p>
             </div>
             <Link
@@ -501,7 +501,7 @@ function ResourcePack() {
           </ul>
           <p className="mt-6 flex items-center gap-2 text-xs text-sub">
             <Phone className="h-3.5 w-3.5" />
-            也可直接联系：{BRAND.contactName} {BRAND.contactPhone}（微信同号）
+            也可直接联系：{BRAND.contactName} · {BRAND.contactTitle} {BRAND.contactPhone}（微信同号）
           </p>
         </div>
         <div className="rounded-[14px] bg-brand-50 p-6 ring-1 ring-line md:p-8">

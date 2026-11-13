@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/training", priority: 0.8 },
     { path: "/news", priority: 0.6 },
     { path: "/contact", priority: 0.9 },
+    { path: "/privacy", priority: 0.3 },
+    { path: "/terms", priority: 0.3 },
   ].map((p) => ({
     url: `${BASE}${p.path}`,
     lastModified: LAST_MODIFIED,

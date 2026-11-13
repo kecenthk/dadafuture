@@ -35,7 +35,7 @@ export default function CtaSection({
           </Link>
         </div>
         <p className="mt-5 text-xs text-brand-200">
-          业务联系：{BRAND.contactName} {BRAND.contactPhone}（微信同号）
+          业务联系：{BRAND.contactName} · {BRAND.contactTitle} {BRAND.contactPhone}（微信同号）
         </p>
       </div>
     </section>

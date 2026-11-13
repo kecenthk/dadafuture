@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import { Icon } from "@/components/Icon";
 import {
   COOP_GUARANTEES,
+  COOP_MODELS,
   GUARANTEE,
   L_SERIES,
   PLAN_MATRIX,
@@ -15,9 +16,9 @@ import {
 } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "服务产品",
+  title: "工厂出海九大服务｜独立站 + SEO/GEO · 广告投放 · 爆款共创 · 合伙人",
   description:
-    "搭搭未来九大核心服务 + 超级合伙人全案：爆款共创、WordPress/Shopify 独立站建站、SEO/GEO 运营、九大平台广告投放、内容运营与社媒矩阵、LinkedIn 主动开发、2C 直播、B2B 业务转化与管理、出海 + AI 智能体。",
+    "搭搭未来九大核心服务 + 超级合伙人全案：爆款共创、WordPress / Shopify 独立站建站、SEO/GEO 运营、九大平台广告投放、内容与社媒矩阵、LinkedIn 主动开发、2C 直播、B2B 业务转化与管理、出海 + AI 智能体。不碰货、不垫资、无贸易差价，效果与计费口径全部写进方案。",
 };
 
 export default function ServicesPage() {
@@ -175,6 +176,38 @@ export default function ServicesPage() {
                   <h4 className="mt-3 font-bold text-brand-900">{l.name}</h4>
                   <p className="mt-1 text-xl font-black text-amber-700">{l.price}</p>
                   <p className="mt-2 flex-1 text-xs leading-relaxed text-sub">{l.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 其他合作方式 · 按月 / 按项目 */}
+          <div className="mt-14">
+            <h3 className="text-center text-lg font-bold text-brand-900">
+              其他合作方式（按月 / 按项目计费）
+            </h3>
+            <p className="mt-2 text-center text-sm text-sub">
+              孵化陪跑按月推进，企业内训按项目交付，联合运营按项目单独设计
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {COOP_MODELS.map((m) => (
+                <div
+                  key={m.name}
+                  className="flex h-full flex-col rounded-[14px] border-t-4 border-amber-600 bg-white p-6 ring-1 ring-line"
+                >
+                  <h4 className="text-lg font-bold text-brand-900">{m.name}</h4>
+                  <p className="mt-1 text-xs text-sub">{m.tagline}</p>
+                  <p className="mt-4">
+                    <span
+                      className={`font-black text-amber-700 ${
+                        m.unit ? "text-3xl" : "text-xl"
+                      }`}
+                    >
+                      {m.price}
+                    </span>
+                    {m.unit && <span className="ml-1 text-sm text-sub">{m.unit}</span>}
+                  </p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-sub">{m.desc}</p>
                 </div>
               ))}
             </div>

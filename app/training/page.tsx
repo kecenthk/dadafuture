@@ -5,20 +5,13 @@ import CtaSection from "@/components/CtaSection";
 import PageHero from "@/components/PageHero";
 import { Icon } from "@/components/Icon";
 import { img } from "@/lib/images";
-import { SALON_PERKS, TRAININGS } from "@/lib/data";
+import { BRAND, SALON, SALON_PERKS, TRAININGS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "培训赋能",
+  title: "出海 + AI 实战沙龙｜企业 AI 内训 · 主理人 IP 训练营 · 培训赋能",
   description:
-    "搭搭未来赋能体系：「主理人 IP + 轻实体」培训、企业 AI 应用专项培训、「出海 + AI」线下实战沙龙（¥998/人，审核制 18 席）。以实战指导实战，以游学眼见为实。",
+    "搭搭未来赋能体系：「主理人 IP + 轻实体」培训、企业 AI 应用专项培训、「出海 + AI」线下实战沙龙（第 2 期 11 月 19 日 13:00–17:30，¥1980/人，仅 20 席，含 30 天 1 次 1v1 诊断）。以实战指导实战，以游学眼见为实，只讲正在跑的打法。",
 };
-
-const STEPS = [
-  { title: "填写报名表", desc: "公司 / 想打出的爆款产品 SKU 级 / 目标市场 / 产能成本区间 / 当前卡在哪一步" },
-  { title: "审核", desc: "审核制筛选，确保同场交流质量" },
-  { title: "缴费锁席", desc: "¥998/人，缴费确认座位，仅 18 席" },
-  { title: "到场共创", desc: "半天六段实战分享 + 资料包 + 工具表 + 茶歇" },
-];
 
 export default function TrainingPage() {
   return (
@@ -54,26 +47,136 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* 线下沙龙 */}
+      {/* 线下沙龙 · 最新一期 */}
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">「出海 + AI」线下实战沙龙</h2>
-            <p className="mt-2 text-sm text-sub">
-              半天六段 · ¥998/人 · 审核制仅 18 席 · 讲师阵容：一祎、小凤、Coco、雪梨、十月、搞跨境的可乐哥
+            <p className="text-xs font-bold tracking-widest text-amber-700">
+              最新一期 · {SALON.edition}
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">
+              「出海 + AI」线下实战沙龙
+            </h2>
+            <p className="mt-2 text-sm text-sub md:text-base">
+              只讲自己正在跑的打法，不讲行业趋势 —— 三位主讲，20 席闭门
             </p>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {STEPS.map((s, i) => (
-              <div key={s.title} className="rounded-[14px] border-t-4 border-amber-600 bg-white p-6 ring-1 ring-line">
-                <span className="text-2xl font-black text-amber-600/40">{i + 1}</span>
-                <h3 className="mt-2 font-bold text-brand-900">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-sub">{s.desc}</p>
+
+          {/* 关键信息 */}
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: "时间", value: SALON.date, note: SALON.time },
+              { label: "地点", value: SALON.venue, note: "签到后统一引导入场" },
+              { label: "席位", value: SALON.seats, note: SALON.audience },
+              { label: "费用", value: `¥${SALON.price}/人`, note: SALON.priceNote },
+            ].map((item) => (
+              <div key={item.label} className="rounded-[14px] bg-white p-5 ring-1 ring-line">
+                <p className="text-xs font-bold tracking-widest text-amber-700">{item.label}</p>
+                <p className="mt-2 text-lg font-bold text-brand-900">{item.value}</p>
+                <p className="mt-1 text-xs leading-relaxed text-sub">{item.note}</p>
               </div>
             ))}
           </div>
+
+          {/* 第 2 期宣传图：一行三张 */}
+          <div className="mx-auto mt-6 grid max-w-[1180px] grid-cols-3 gap-3 md:gap-5">
+            {[
+              { src: "/salon/salon-2-invite.png", alt: "第 2 期「出海 + AI」实战沙龙诚邀" },
+              { src: "/salon/salon-2-speakers.png", alt: "第 2 期主讲阵容" },
+              { src: "/salon/salon-2-recap.png", alt: "往期沙龙现场" },
+            ].map((p) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={p.src}
+                src={p.src}
+                alt={p.alt}
+                className="w-full rounded-[14px] ring-1 ring-line"
+                loading="lazy"
+              />
+            ))}
+          </div>
+
+          {/* 三位主讲 */}
+          <div className="mt-12">
+            <h3 className="text-center text-lg font-bold text-brand-900">
+              三位主讲 · 只讲自己正在跑的打法
+            </h3>
+            <div className="mt-6 grid gap-4 lg:grid-cols-3">
+              {SALON.speakers.map((s) => (
+                <div
+                  key={s.no}
+                  className="flex h-full flex-col rounded-[14px] border-t-4 border-amber-600 bg-white p-6 ring-1 ring-line"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-brand-900 px-3 py-1 text-xs font-black text-amber-400">
+                      {s.no}
+                    </span>
+                    <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-800">
+                      {s.tag}
+                    </span>
+                  </div>
+                  <h4 className="mt-4 text-lg font-bold text-brand-900">{s.topic}</h4>
+                  <p className="mt-1 text-xs text-sub">
+                    {s.name} · {s.role}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-sub">{s.desc}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {s.metrics.map((m) => (
+                      <span
+                        key={m}
+                        className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700"
+                      >
+                        {m}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="mt-4 flex-1 border-t border-line pt-3 text-sm font-medium text-brand-800">
+                    「{s.quote}」
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 当天流程 */}
+          <div className="mt-12 rounded-[14px] bg-white p-6 ring-1 ring-line md:p-8">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+              <h3 className="font-bold text-brand-900">当天流程</h3>
+              <p className="text-xs text-sub">
+                {SALON.date} · {SALON.time}
+              </p>
+            </div>
+            <div className="mt-4 grid gap-x-10 sm:grid-cols-2">
+              {SALON.agenda.map((a) => (
+                <div
+                  key={a.time}
+                  className="flex items-start gap-3 border-b border-line py-2.5"
+                >
+                  <span className="w-12 shrink-0 text-sm font-bold text-amber-700">{a.time}</span>
+                  <span className="flex-1 text-sm text-ink">{a.title}</span>
+                  <span className="shrink-0 text-xs text-sub">{a.who}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 三个不同 */}
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {SALON.values.map((v, i) => (
+              <div key={v.title} className="rounded-[14px] bg-white p-5 ring-1 ring-line">
+                <span className="text-2xl font-black text-amber-600/40">0{i + 1}</span>
+                <h4 className="mt-1 font-bold text-brand-900">{v.title}</h4>
+                <p className="mt-1 text-sm leading-relaxed text-sub">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-sm font-medium text-brand-800">
+            「{SALON.claim}」
+          </p>
+
+          {/* 到场即得 + 报名 */}
           <div className="mt-10 rounded-[14px] bg-brand-900 p-6 md:p-8">
-            <h3 className="font-bold text-amber-400">参会权益（价值 199 元外贸资料包）</h3>
+            <h3 className="font-bold text-amber-400">到场即得（价值 199 元外贸资料包 · 6 项）</h3>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {SALON_PERKS.map((p) => (
                 <li key={p} className="flex items-start gap-2 text-sm text-brand-100">
@@ -82,13 +185,18 @@ export default function TrainingPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <Link
                 href="/contact?type=salon"
-                className="inline-flex items-center gap-2 rounded-[10px] bg-amber-500 px-8 py-3 text-sm font-semibold text-brand-900 transition hover:bg-amber-400"
+                className="inline-flex w-max items-center gap-2 rounded-[10px] bg-amber-500 px-8 py-3 text-sm font-semibold text-brand-900 transition hover:bg-amber-400"
               >
                 报名 / 咨询沙龙席位 <ArrowRight className="h-4 w-4" />
               </Link>
+              <p className="text-sm text-brand-100">
+                报名 / 咨询：
+                <span className="font-bold text-amber-400">{BRAND.contactPhone}</span>
+                （{BRAND.contactName} · {BRAND.contactTitle}，微信同号）
+              </p>
             </div>
           </div>
         </div>

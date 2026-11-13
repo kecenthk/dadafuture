@@ -8,8 +8,10 @@ export const BRAND = {
   slogan: "一起搭、搭未来",
   positioning: "B2B 工厂出海超级营销合伙人",
   promise: "不卖一次性流量，只做全链路增长",
-  contactName: "刘女士",
-  contactPhone: "185 0208 8258",
+  contactName: "十月",
+  contactTitle: "项目负责",
+  contactPhone: "137 2672 4687",
+  wechatQr: "/brand/wechat-qr.png",
   site: "www.dadafuture.com",
   icp: "搭搭未来 × 云店+ 联合品牌",
 };
@@ -543,6 +545,31 @@ export const L_SERIES = [
   },
 ];
 
+/** 其他合作方式（按月 / 按项目计费） */
+export const COOP_MODELS = [
+  {
+    name: "孵化陪跑",
+    price: "3–5 万",
+    unit: "/月",
+    tagline: "驻场式推进，按月陪跑",
+    desc: "从选品、内容、投放到转化，与企业团队一起把增长动作跑起来，按月付费、节奏可调。",
+  },
+  {
+    name: "企业内训",
+    price: "2 万",
+    unit: "/次（按项目）",
+    tagline: "按项目定制课程，补齐团队能力",
+    desc: "围绕出海获客、爆品打造、AI 工具与转化 SOP 定制课程，一次交付一套可复用的方法。",
+  },
+  {
+    name: "联合运营",
+    price: "详情咨询",
+    unit: "",
+    tagline: "深度绑定，共建增长与收益",
+    desc: "以联合运营方式共建 B2B / B2C 业务，投入、分工与分账按项目单独设计。",
+  },
+];
+
 /** 合作保障四条款 */
 export const COOP_GUARANTEES = [
   "细分赛道排他（合作期 + 结束后 12 个月）",
@@ -837,35 +864,73 @@ export const TEAM = [
     role: "创始人 & 总顾问",
     bio: "华南理工硕士，17 年实战营销专家。以体系化方法论驱动品牌从 0 到 1、从 1 到 N，为合作企业提供商业模式设计与市场增长的深度指导与赋能。",
     tags: ["全渠道演进 · 全域增长", "全球视野 · 立足中国", "品牌增长方法论"],
-    image: img("confident chinese business founder in meeting room, strategic consulting session, professional portrait, dark blue suit", "portrait_4_3"),
+    image: "/team/qiang.jpg",
   },
   {
     name: "搞跨境的可乐哥",
     role: "联合创始人 & 技术负责人",
     bio: "华南理工硕士，前腾讯研发，10+ 年跨境与电商运营经验。负责 AI 建站与全域获客增长方案，专注「出海 + AI」。",
     tags: ["前腾讯研发", "AI 建站", "全域获客增长"],
-    image: img("chinese tech lead engineer working with laptop and screens showing website dashboards, modern office", "portrait_4_3"),
+    image: "/team/cola.png",
   },
   {
     name: "十月",
     role: "联合创始人 · 运营负责人",
     bio: "华南理工 MBA，20+ 年外贸经验。擅长私域运营与获客转化，熟悉外贸全链路，是十余家数亿规模企业的外贸培训老师。",
     tags: ["20+ 年外贸", "私域运营", "外贸培训"],
-    image: img("professional chinese businesswoman leading a training workshop, export trade seminar, confident presentation", "portrait_4_3"),
+    image: "/team/shiyue.jpg",
   },
   {
     name: "雪姐",
     role: "运营与内容合伙人",
     bio: "15 年互联网数字营销经验，Facebook / Instagram / TikTok 多社媒平台运营专家，擅长广告投放与内容运营。",
     tags: ["15 年数字营销", "多社媒运营", "广告投放"],
-    image: img("professional chinese female marketing director reviewing social media content on tablet, creative office", "portrait_4_3"),
+    image: "/team/xuejie.jpg",
+  },
+  {
+    name: "Coco",
+    role: "业务销冠",
+    bio: "一个降噪耳塞从几百万起步做到 1.5 亿+/年销售额，产品遍布十几个国家，细分品类 No.1——隐形冠军 / 品类冠军。",
+    tags: ["细分品类 No.1", "1.5 亿+/年销售额", "产品遍布十几个国家"],
+    image: "/team/coco.jpg",
+  },
+  {
+    name: "一鸣",
+    role: "出海顾问",
+    bio: "ToB 工厂出海战略规划、海外市场渠道调研分析、出海项目落地陪跑，负责跨境业务资源对接整合与海外本土化运营策略输出。",
+    tags: ["ToB 工厂出海", "海外渠道调研", "本土化运营"],
+    image: "/team/yiming.png",
+  },
+];
+
+/** 行业方向负责人：一赛道一负责人 */
+export const INDUSTRY_LEADS = [
+  {
+    industry: "大健康",
+    name: "琦琦",
+    role: "行业方向负责人",
+    desc: "负责大健康赛道的项目落地、客户对接与运营协同。",
+    image: "/team/qiqi.png",
+  },
+  {
+    industry: "大美丽",
+    name: "小凤",
+    role: "联合创始人 · 行业方向负责人",
+    desc: "30+ 孵化过亿爆品、带动 50 亿+ 交易额，负责大美丽赛道的爆品孵化与 GMV 成交。",
+    image: "/team/xiaofeng.jpg",
+  },
+  {
+    industry: "大家居",
+    name: "大兵",
+    role: "行业方向负责人",
+    desc: "负责大家居赛道的品类打法与项目落地，以短视频种草驱动询盘线索。",
+    image: "/team/dabing.jpg",
   },
 ];
 
 export const ADVISORS = [
   { name: "蓝天", role: "运营顾问", duty: "全赛道直播短视频体系搭建、运营流程标准化、落地执行督导、团队运营能力赋能" },
   { name: "周平", role: "商业顾问", duty: "赛道商业模式梳理设计、盈利模型优化、市场趋势研判、合作模式设计与商务谈判" },
-  { name: "一鸣", role: "出海顾问", duty: "ToB 工厂出海战略规划、海外市场渠道调研、出海项目落地陪跑、海外本土化运营策略" },
   { name: "毕毕", role: "投资顾问", duty: "项目投资风险评估管控、股权合作架构设计、投融资资源对接、估值研判与合规风控" },
 ];
 
@@ -906,10 +971,74 @@ export const TRAININGS = [
   {
     icon: "Coffee",
     name: "「出海 + AI」线下实战沙龙",
-    desc: "半天六段实战沙龙，¥998/人，审核制仅 18 席。讲师阵容：一祎、小凤、Coco、雪梨、十月、搞跨境的可乐哥。含半天共创、资料包、工具表、茶歇。",
-    points: ["以游学眼见为实", "报名流程：填表 → 审核 → 缴费锁席", "参会即赠价值 199 元外贸资料包"],
+    desc: "半天六段实战沙龙，第 2 期 11 月 19 日（周四）13:00–17:30，¥1980/人，仅 20 席，只对 B 端决策人开放。含工具包 + 课后 1 次 1v1 诊断。",
+    points: ["以游学眼见为实", "报名流程：填表 → 审核 → 缴费锁席", "闭门制 · 现场对着你的卡点拆"],
   },
 ];
+
+/** 最新一期沙龙（第 2 期） */
+export const SALON = {
+  edition: "第 2 期",
+  date: "11 月 19 日 周四",
+  time: "13:00–17:30（12:30 签到）",
+  venue: "搭搭未来 · 美学馆",
+  seats: "仅 20 席",
+  price: "1980",
+  priceNote: "含工具包 + 课后 30 天内 1 次 1v1 诊断",
+  audience: "只对 B 端企业老板与决策人开放",
+  speakers: [
+    {
+      no: "01",
+      tag: "方法论",
+      name: "小凤",
+      role: "搭搭未来联合创始人",
+      topic: "爆品方法论",
+      metrics: ["30+ 孵化过亿爆品", "50 亿+ 带动交易额"],
+      desc: "爆品怎么选、怎么内容化、怎么把试错成本压到最低，一套方法，双向迁移。",
+      quote: "爆品不是运气，是一套可以复用的方法。",
+    },
+    {
+      no: "02",
+      tag: "实战",
+      name: "Coco · 周婧",
+      role: "隐形冠军 · 品类冠军",
+      topic: "细分品类冠军的亿级路径",
+      metrics: ["1.5 亿+/年 销售额", "十几个国家 · 细分品类 No.1"],
+      desc: "从几百万做到 1.5 亿+：选品、专利、渠道与展会节奏，一个小耳塞怎么守住品类第一。",
+      quote: "把一个小东西，做成一个品类的第一名。",
+    },
+    {
+      no: "03",
+      tag: "AI 实操",
+      name: "陈桢",
+      role: "几十条百万播放案例 · 用 AI 量产内容",
+      topic: "30 分钟，一套 Codex 实操",
+      metrics: ["100 万+ 单条最高播放", "单人产能提升 6 倍"],
+      desc: "一周一条变一天一条，现场把这条流水线跑一遍——从选题到成片再到自动发布。",
+      quote: "内容不是灵感，是一条能跑起来的流水线。",
+    },
+  ],
+  agenda: [
+    { time: "12:30", title: "签到 · 领资料", who: "会务" },
+    { time: "13:00", title: "空间参观 1F→4F", who: "琦琦" },
+    { time: "13:30", title: "开场 · 搭搭双轮", who: "大兵" },
+    { time: "13:40", title: "① 爆品方法论", who: "小凤" },
+    { time: "14:20", title: "② 亿级之路", who: "Coco" },
+    { time: "15:00", title: "茶歇 10′", who: "会务" },
+    { time: "15:10", title: "③ Codex 做视频", who: "陈桢" },
+    { time: "15:40", title: "出海线上获客 · 服务内容", who: "十月" },
+    { time: "15:55", title: "自由交流 · 答疑", who: "三位主讲" },
+    { time: "16:25", title: "采访 3 位目标客户", who: "会务" },
+    { time: "16:40", title: "合影", who: "全体" },
+    { time: "16:45", title: "一对一 · 私下交流（17:30 收）", who: "三位主讲" },
+  ],
+  values: [
+    { title: "闭门制", desc: "只对 B 端企业老板与决策人开放，现场不做公开课。" },
+    { title: "当场拆", desc: "每家带 1 个真实卡点，讲师现场对着你的卡点拆。" },
+    { title: "带走用", desc: "工具包 + 课后 30 天内一次 1v1 诊断，回去就能落地。" },
+  ],
+  claim: "不是来听课，是带着自己公司的卡点来被拆。",
+};
 
 export const SALON_PERKS = [
   "出海案例学习",
@@ -963,7 +1092,7 @@ export const NEWS = [
   {
     date: "2026-10",
     title: "「出海 + AI」线下实战沙龙第 2 期招募中",
-    desc: "半天六段实战分享，审核制仅 18 席，含资料包与工具表。",
+    desc: "11 月 19 日（周四）13:00–17:30，¥1980/人，仅 20 席，含工具包与课后 1 次 1v1 诊断。",
   },
   {
     date: "2026-09",

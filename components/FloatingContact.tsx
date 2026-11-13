@@ -21,11 +21,19 @@ export default function FloatingContact() {
       <div className="relative">
         {showTip && (
           <div className="absolute right-full top-1/2 mr-2 w-52 -translate-y-1/2 rounded-[10px] bg-white p-3 text-xs leading-relaxed text-ink shadow-[0_8px_24px_rgba(22,50,58,0.12)] ring-1 ring-line">
-            <p className="font-semibold text-brand-800">微信咨询 · {BRAND.contactName}</p>
-            <p className="mt-1 text-base font-bold tracking-wide text-amber-700">
+            <p className="font-semibold text-brand-800">
+              微信咨询 · {BRAND.contactName} · {BRAND.contactTitle}
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={BRAND.wechatQr}
+              alt={`${BRAND.contactName} 微信二维码`}
+              className="mx-auto mt-2 w-40 rounded-[8px] bg-white p-1 ring-1 ring-line"
+            />
+            <p className="mt-2 text-base font-bold tracking-wide text-amber-700">
               {BRAND.contactPhone}
             </p>
-            <p className="mt-1 text-sub">微信同号，备注「出海方案」优先通过</p>
+            <p className="mt-1 text-sub">扫码或微信同号，备注「出海方案」优先通过</p>
           </div>
         )}
         <button

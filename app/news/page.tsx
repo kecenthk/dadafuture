@@ -6,8 +6,9 @@ import PageHero from "@/components/PageHero";
 import { NEWS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "新闻动态",
-  description: "搭搭未来新闻动态：公司动态、线下活动、行业洞察（出海 + AI、爆品方法论、品类红利选题）。",
+  title: "新闻动态｜「出海 + AI」沙龙 · 爆品方法论 · 品类红利行业洞察",
+  description:
+    "搭搭未来新闻动态：公司动态、线下「出海 + AI」实战沙龙（第 2 期 11 月 19 日）、行业洞察（爆品方法论、品类红利、AI 内容量产）。每月更新可落地的出海打法与活动预告，覆盖大健康、大美丽、大家居与出海方向，欢迎工厂决策人关注。",
 };
 
 export default function NewsPage() {

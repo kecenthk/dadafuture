@@ -3,12 +3,12 @@ import { BadgeCheck } from "lucide-react";
 import CtaSection from "@/components/CtaSection";
 import PageHero from "@/components/PageHero";
 import { img } from "@/lib/images";
-import { ADVISORS, BRAND, DUAL_WHEEL, FOUR_EMPHASES, TEAM } from "@/lib/data";
+import { ADVISORS, BRAND, DUAL_WHEEL, FOUR_EMPHASES, INDUSTRY_LEADS, TEAM } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "关于我们",
+  title: "关于搭搭未来｜品牌孵化器 · 工厂出海超级营销合伙人 · 团队与行业负责人",
   description:
-    "搭搭未来 DADAFUTURE：品牌孵化器 · B2B 工厂出海超级营销合伙人。创始人毒舌强（华南理工硕士，17 年实战营销专家），双轮驱动模型：IP 商业化 × 爆品共创。使命：助力优秀的人，成就想优秀的人；助力头部品牌，成就品类冠军。",
+    "搭搭未来 DADAFUTURE 是品牌孵化器与工厂出海超级营销合伙人：以「IP 商业化 × 爆品共创」双轮驱动，把工厂的好产品做成品类冠军。核心团队累计 30+ 年出海经验、覆盖 9+ 平台，行业方向覆盖大健康、大美丽、大家居与出海；50+ 签约 IP、50 亿+ 爆品共创业绩。欢迎预约一次出海诊断。",
 };
 
 const VALUES = [
@@ -28,12 +28,17 @@ const VALUES = [
 
 export default function AboutPage() {
   const founder = TEAM[0];
+  /* 核心团队：强哥已在创始人版块呈现，此处不重复；十月排第一位 */
+  const coreTeam = [
+    ...TEAM.filter((t) => t.name === "十月"),
+    ...TEAM.filter((t) => t.name !== "十月" && t.name !== founder.name),
+  ];
   return (
     <>
       <PageHero
         title={`关于${BRAND.name}`}
-        subtitle={`品牌孵化器 · ${BRAND.positioning}`}
-        description={`${BRAND.slogan}。${BRAND.promise}——以离岸数字孵化服务制造企业品牌出海升级：不碰货、不垫资、无贸易差价，覆盖新科技、新材料、新能源、智能制造。`}
+        subtitle="品牌孵化器 · 工厂出海超级营销合伙人"
+        description={`${BRAND.slogan}。${BRAND.promise}——以「IP 商业化 × 爆品共创」双轮驱动，把工厂的好产品做成品类冠军：覆盖大健康、大美丽、大家居三大赛道与出海方向，服务新科技、新材料、新能源、智能制造工厂。`}
         image={img("professional Chinese business team meeting in modern office, strategic planning session, deep blue corporate style")}
       />
 
@@ -114,10 +119,40 @@ export default function AboutPage() {
                 17 年实战沉淀，以体系化方法论驱动品牌从 0 到 1、从 1 到 N。为合作企业提供商业模式设计与市场增长的深度指导与赋能。
               </p>
               <div className="mt-6 space-y-3">
-                {founder.tags.map((t) => (
-                  <div key={t} className="flex items-center gap-2 rounded-[10px] bg-white px-4 py-3 text-sm font-medium text-brand-900 ring-1 ring-line">
-                    <BadgeCheck className="h-4 w-4 shrink-0 text-amber-600" />
-                    {t}
+                {[
+                  {
+                    no: "01",
+                    title: "全渠道演进 · 全域增长",
+                    desc: "从实体直营到全国连锁 · 从传统电商到兴趣电商",
+                    en: "Retail Chains to E-commerce · Traditional to Interest E-commerce",
+                  },
+                  {
+                    no: "02",
+                    title: "全球视野 · 立足中国",
+                    desc: "立足中国 · 走向全球",
+                    en: "Rooted in China · Going Global",
+                  },
+                  {
+                    no: "03",
+                    title: "品牌增长方法论",
+                    desc: "从品牌战略到营销创新 · 从品类机会到爆品突围",
+                    en: "Brand Strategy to Marketing · Category Opportunity to Hit Product",
+                  },
+                ].map((s) => (
+                  <div
+                    key={s.no}
+                    className="rounded-[10px] bg-white px-4 py-3.5 ring-1 ring-line"
+                  >
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-sm font-black text-amber-600">{s.no}</span>
+                      <div>
+                        <p className="text-sm font-bold text-brand-900">{s.title}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-sub">{s.desc}</p>
+                        <p className="mt-0.5 text-[11px] leading-relaxed text-sub opacity-60">
+                          {s.en}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -126,25 +161,57 @@ export default function AboutPage() {
             <img
               src={founder.image}
               alt={founder.name}
-              className="w-full rounded-[14px] object-cover shadow-[0_8px_24px_rgba(22,50,58,0.10)] ring-1 ring-line"
+              className="mx-auto aspect-square w-full max-w-[330px] rounded-[14px] object-cover object-top shadow-[0_8px_24px_rgba(22,50,58,0.10)] ring-1 ring-line md:max-w-[380px]"
               loading="lazy"
             />
           </div>
         </div>
       </section>
 
-      {/* 核心团队 */}
+      {/* 行业方向负责人 */}
       <section className="py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">行业方向负责人</h2>
+            <p className="mt-2 text-sm text-sub">三大行业赛道 · 一赛道一负责人 · 深耕品类打法</p>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-5">
+            {INDUSTRY_LEADS.map((l) => (
+              <div
+                key={l.name}
+                className="w-full max-w-[340px] overflow-hidden rounded-[14px] bg-white ring-1 ring-line"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={l.image}
+                  alt={l.name}
+                  className="aspect-square w-full object-cover object-top"
+                  loading="lazy"
+                />
+                <div className="p-5">
+                  <p className="text-xs font-bold tracking-widest text-amber-700">{l.industry}</p>
+                  <h3 className="mt-1 font-bold text-brand-900">{l.name}</h3>
+                  <p className="mt-0.5 text-xs font-medium text-sub">{l.role}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-sub">{l.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 核心团队 */}
+      <section className="bg-surface py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">核心团队</h2>
             <p className="mt-2 text-sm text-sub">ToB 工厂出海 · 累计 30+ 年经验 · 覆盖 9+ 平台</p>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {TEAM.map((t) => (
-              <div key={t.name} className="overflow-hidden rounded-[14px] bg-white ring-1 ring-line">
+          <div className="mt-10 flex flex-wrap justify-center gap-5">
+            {coreTeam.map((t) => (
+              <div key={t.name} className="w-full max-w-[340px] overflow-hidden rounded-[14px] bg-white ring-1 ring-line sm:w-[calc(50%-0.625rem)] lg:w-[calc(20%-1rem)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={t.image} alt={t.name} className="h-44 w-full object-cover" loading="lazy" />
+                <img src={t.image} alt={t.name} className="aspect-square w-full object-cover object-top" loading="lazy" />
                 <div className="p-5">
                   <h3 className="font-bold text-brand-900">{t.name}</h3>
                   <p className="mt-0.5 text-xs font-medium text-amber-700">{t.role}</p>
@@ -155,15 +222,13 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* 顾问团队 */}
-      <section className="bg-surface py-16 sm:py-20 lg:py-24">
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">核心顾问团队</h2>
-            <p className="mt-2 text-sm text-sub">四大顾问体系 · 全项目战略赋能</p>
+            <p className="mt-2 text-sm text-sub">三大顾问体系 · 全项目战略赋能</p>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {ADVISORS.map((a) => (
               <div key={a.name} className="rounded-[14px] bg-white p-6 ring-1 ring-line">
                 <p className="font-bold text-brand-900">

@@ -19,8 +19,8 @@ export async function generateMetadata({
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.name}`,
-    description: `${service.name}：${service.short}。搭搭未来（DADAFUTURE）——B2B 工厂出海超级营销合伙人。`,
+    title: `${service.name}｜工厂出海服务`,
+    description: `${service.name}：${service.short}。搭搭未来——工厂出海超级营销合伙人，AI 独立站、SEO/GEO、九大平台广告投放与爆款共创一体交付，不碰货、不垫资、无贸易差价，效果与计费口径写进方案。`,
   };
 }
 
@@ -39,6 +39,7 @@ export default async function ServiceDetailPage({
         title={service.name}
         subtitle={service.slogan}
         image={service.heroImage}
+        parent={{ href: "/services", label: "服务产品" }}
       />
 
       <section className="py-16 sm:py-20 lg:py-24">

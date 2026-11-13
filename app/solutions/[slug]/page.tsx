@@ -18,8 +18,8 @@ export async function generateMetadata({
   const s = getSolution(slug);
   if (!s) return {};
   return {
-    title: `${s.name}出海解决方案`,
-    description: `${s.name}（${s.scope}）出海解决方案：${s.intro}`,
+    title: `${s.name}出海解决方案｜选品 · 渠道 · 内容 · 转化全链路`,
+    description: `${s.name}（${s.scope}）出海解决方案：${s.intro}搭搭未来——工厂出海超级营销合伙人，从选品、渠道到内容与转化的全链路陪跑。`,
   };
 }
 
@@ -32,7 +32,13 @@ export default async function SolutionDetailPage({
 
   return (
     <>
-      <PageHero title={`${s.name}出海`} subtitle={s.scope} description={s.intro} image={s.heroImage} />
+      <PageHero
+        title={`${s.name}出海`}
+        subtitle={s.scope}
+        description={s.intro}
+        image={s.heroImage}
+        parent={{ href: "/solutions", label: "解决方案" }}
+      />
 
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
