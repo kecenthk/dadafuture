@@ -49,7 +49,7 @@ export default async function ServicesPage() {
         image={partnership.heroImage}
       />
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {core.map((s) => (
               <Link
@@ -226,7 +226,7 @@ export default async function ServicesPage() {
       </section>
 
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="overflow-hidden rounded-[14px] bg-white ring-1 ring-line">
             <div className="bg-brand-900 px-5 py-4">
               <h2 className="font-bold text-amber-400">{GUARANTEE.title}</h2>

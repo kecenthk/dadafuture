@@ -7,9 +7,9 @@
 export const homeCopy = {
   hero: {
     badge: "品牌孵化器 · 17 年實戰營銷 · 50+ 孵化簽約 IP · 覆蓋 9+ 平台",
-    heroAlt: "工廠出海與全球貿易場景",
+    heroAlt: "搭搭未來門窗優選館公司大門實景",
     promiseSuffix:
-      "——以離岸數字孵化服務製造企業品牌出海升級：不碰貨、不墊資、無貿易差價，覆蓋新科技、新材料、新能源、智能製造四大賽道。",
+      "——幫助製造企業品牌出海升級，不碰貨、不墊資、無貿易差價，覆蓋新科技、新材料、新能源、智能製造四大賽道。",
     ctaPrimary: "免費獲取出海方案",
     ctaSecondary: "領取外貿資料包",
     trust: ["一對一運營", "收費透明", "廣告費直充平台", "90 天見效"],
@@ -23,7 +23,8 @@ export const homeCopy = {
     eyebrow: "品牌孵化引擎",
     imageAlt: "搭搭未來雙輪驅動模型",
     suffix: "——兩大輪子一起轉，品牌才轉得起來",
-    tracksLabel: "三大實戰賽道：",
+    tracksLabel: "四大賽道：",
+    solutionsLink: "查看解決方案與合作方式",
   },
   stages: {
     title: "不賣一次性流量，只做全鏈路增長",
@@ -50,11 +51,6 @@ export const homeCopy = {
   training: {
     title: "培訓賦能：以實戰指導實戰，以遊學眼見為實",
     subtitle: "賦能體系與訓練營——把驗證過的方法沉澱給合作企業",
-    eventEyebrow: "下期預告",
-    eventTitle: "「出海 + AI」線下實戰沙龍 · 第 2 期",
-    eventDesc:
-      "11 月 19 日（週四）13:00–17:30 · ¥1980/人 · 僅 20 席 · 含工具包與課後 1 次 1v1 診斷",
-    eventCta: "瞭解沙龍與報名",
   },
   resource: {
     eyebrow: "限時領取",

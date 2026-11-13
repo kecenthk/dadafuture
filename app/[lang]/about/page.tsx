@@ -43,7 +43,7 @@ export default async function AboutPage() {
       />
 
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="grid gap-4 md:grid-cols-3">
             {copy.values.map((v) => (
               <div key={v.title} className="rounded-[14px] bg-white p-6 ring-1 ring-line">
@@ -54,7 +54,7 @@ export default async function AboutPage() {
           </div>
 
           <div className="mt-10 grid items-center gap-8 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-[14px] bg-white p-4 ring-1 ring-line">
+            <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[14px] bg-white p-4 ring-1 ring-line">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={DUAL_WHEEL.image}
@@ -106,7 +106,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <p className="text-xs font-bold tracking-widest text-amber-700">{copy.founder.eyebrow}</p>
@@ -143,7 +143,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.industry.title}</h2>
             <p className="mt-2 text-sm text-sub">{copy.industry.subtitle}</p>
@@ -174,7 +174,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.team.title}</h2>
             <p className="mt-2 text-sm text-sub">{copy.team.subtitle}</p>
@@ -204,7 +204,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.advisors.title}</h2>
             <p className="mt-2 text-sm text-sub">{copy.advisors.subtitle}</p>
@@ -224,6 +224,21 @@ export default async function AboutPage() {
             <h3 className="font-bold text-brand-900">{copy.eco.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-sub">{copy.eco.desc}</p>
           </div>
+          <figure className="mt-10 overflow-hidden rounded-[14px] bg-white p-2 ring-1 ring-line md:p-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/about/office-gate.jpg"
+              alt={copy.office.imageAlt}
+              className="w-full rounded-[10px]"
+              loading="lazy"
+            />
+            <figcaption className="flex flex-col gap-1 px-3 py-4 sm:flex-row sm:items-baseline sm:justify-between">
+              <span className="text-sm font-bold text-brand-900">{copy.office.title}</span>
+              <span className="text-xs text-sub">
+                {copy.office.eyebrow} · {copy.office.desc}
+              </span>
+            </figcaption>
+          </figure>
         </div>
       </section>
       <CtaSection locale={locale} />

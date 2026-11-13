@@ -60,7 +60,7 @@ export default async function SolutionDetailPage({
       />
 
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-[14px] bg-white p-6 ring-1 ring-line md:p-8">
               <h2 className="text-lg font-bold text-brand-900">{copy.pain}</h2>

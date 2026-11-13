@@ -33,7 +33,7 @@ export default async function ContactPage() {
         description={copy.hero.description}
       />
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-5 sm:px-8 lg:px-10 lg:grid-cols-5">
+        <div className="mx-auto grid w-full max-w-8xl gap-10 px-5 sm:px-8 lg:px-10 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-2">
             <div className="rounded-[14px] bg-brand-900 p-6">
               <h2 className="font-bold text-amber-400">{copy.aside.contactTitle}</h2>

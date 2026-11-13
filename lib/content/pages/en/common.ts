@@ -65,6 +65,9 @@ export const commonCopy = {
     privacy: "Privacy Policy",
     terms: "Terms of Service",
     phoneLabel: "Business contact",
+    company: "Guangzhou Gongsheng E-Commerce Co., Ltd.",
+    address:
+      "No. 12 Liutiegang Road, Jiangxia, Huangshi Street, Baiyun District, Guangzhou, Guangdong, China",
   },
   floating: {
     title: "WeChat Enquiry",

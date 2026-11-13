@@ -68,6 +68,8 @@ export const commonCopy = {
     privacy: "隱私政策",
     terms: "服務條款",
     phoneLabel: "業務聯繫",
+    company: "廣州共生電子商務有限公司",
+    address: "廣東省廣州市白雲區黃石街江夏流鐵崗路12號",
   },
   floating: {
     title: "微信諮詢",

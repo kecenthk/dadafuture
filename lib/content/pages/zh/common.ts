@@ -66,6 +66,8 @@ export const commonCopy = {
     privacy: "隐私政策",
     terms: "服务条款",
     phoneLabel: "业务联系",
+    company: "广州共生电子商务有限公司",
+    address: "广东省广州市白云区黄石街江夏流铁岗路12号",
   },
   floating: {
     title: "微信咨询",

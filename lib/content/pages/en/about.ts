@@ -17,6 +17,12 @@ export const aboutCopy: AboutCopy = {
       "Build together, build the future. We don't sell one-off traffic — we deliver end-to-end growth. Driven by the dual wheels of “IP commercialization × hit-product co-creation”, we turn good factory products into category champions: covering health & wellness, beauty & personal care and home & building plus the global growth track, serving factories in new technology, new materials, new energy and smart manufacturing.",
     imageAlt: "DADAFUTURE team strategy meeting",
   },
+  office: {
+    eyebrow: "Our Office",
+    title: "DADAFUTURE Window & Door Selection Hall",
+    desc: "From the factory floor to global markets — we work on the front line.",
+    imageAlt: "The DADAFUTURE company entrance",
+  },
   values: [
     { title: "Mission for people", desc: "Help outstanding people and those who want to become outstanding." },
     { title: "Mission for brands", desc: "Help leading brands become category champions." },

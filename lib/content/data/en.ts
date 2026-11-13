@@ -952,20 +952,20 @@ export const DUAL_WHEEL = {
     },
     {
       name: "Hit-product co-creation",
-      items: ["Uncover category hit-product opportunities", "Research IP business models", "Deconstruct IP monetization paths"],
+      items: ["Category dividend analysis", "Hit-product opportunity discovery", "Product-sales integrated incubation"],
     },
   ],
-  tracks: ["Beauty & personal care", "Health & wellness", "Home & building"],
+  tracks: ["Home & building", "Beauty & personal care", "Health & wellness", "Industrial upgrade"],
 };
 
 /* ============================== Training and enablement ============================== */
 
 export const TRAININGS = [
   {
-    icon: "UserRound",
-    name: "“Owner-operator IP + light physical store” training",
-    desc: "Built on the Little Lily benchmark model, this replicates the light-asset IP owner-operator plus home light-store business model: personal IP business positioning, persona building, track selection; online traffic plus offline micro-store closed loop; short-video and livestream acquisition, private-domain retention and high-ticket conversion across the full chain.",
-    points: ["Practitioners teaching practice", "Study visits to benchmark accounts / studios / livestream rooms", "Replicating the light-asset IP business model"],
+    icon: "Coffee",
+    name: "“Going global + AI” offline practice salon",
+    desc: "A half-day, six-part hands-on salon. Session 2 on November 19 (Thursday) 13:00–17:30, ¥1980 per person, only 20 seats, open to B2B decision-makers only. Includes a tool kit and one 1v1 diagnosis after the session.",
+    points: ["Seeing is believing through study visits", "Registration: form → review → payment to lock a seat", "Closed-door format · we deconstruct the bottleneck you bring"],
   },
   {
     icon: "Bot",
@@ -974,10 +974,10 @@ export const TRAININGS = [
     points: ["AI Agent Business Loop Bootcamp (offline)", "Deconstructing mature internal AI workflows", "Going global + AI — AI is a tool, not a gimmick"],
   },
   {
-    icon: "Coffee",
-    name: "“Going global + AI” offline practice salon",
-    desc: "A half-day, six-part hands-on salon. Session 2 on November 19 (Thursday) 13:00–17:30, ¥1980 per person, only 20 seats, open to B2B decision-makers only. Includes a tool kit and one 1v1 diagnosis after the session.",
-    points: ["Seeing is believing through study visits", "Registration: form → review → payment to lock a seat", "Closed-door format · we deconstruct the bottleneck you bring"],
+    icon: "UserRound",
+    name: "“Owner-operator IP + light physical store” training",
+    desc: "Built on the Little Lily benchmark model, this replicates the light-asset IP owner-operator plus home light-store business model: personal IP business positioning, persona building, track selection; online traffic plus offline micro-store closed loop; short-video and livestream acquisition, private-domain retention and high-ticket conversion across the full chain.",
+    points: ["Practitioners teaching practice", "Study visits to benchmark accounts / studios / livestream rooms", "Replicating the light-asset IP business model"],
   },
 ];
 
@@ -1080,6 +1080,22 @@ export const FAQS = [
   {
     q: "Which factories are a good fit?",
     a: "Manufacturing factories with products, capacity and export or cross-border experience, where the category still has upside headroom and the product can be built into a hit. The ideal profile runs 2B services and 2C hit products in parallel; meeting at least one of them is enough to start the engagement.",
+  },
+  {
+    q: "What partnership models do you offer, and how do we choose?",
+    a: "Five: the super-partner full package, factory global-expansion incubation, in-house training and coaching, joint operations (B2B + B2C), and hit-product co-creation. We choose based on your product, target markets and team capability — starting with a diagnosis, then agreeing the model and scope.",
+  },
+  {
+    q: "What does the engagement process look like?",
+    a: "We start by diagnosing your product and target markets to define the lead product, target market and current gaps. Then we agree the build scope, acquisition channels and acceptance criteria, and move through four stages: infrastructure, acquisition, conversion and review — iterating after each stage.",
+  },
+  {
+    q: "Who are the training and offline salon for, and how do we sign up?",
+    a: "They are for B2B business owners and decision-makers. Session 2 of the “Going Global + AI” offline practice salon runs on November 19 (Thursday), 13:00–17:30, at ¥1,980 per person with only 20 seats. Registration: submit the form, pass review, pay to lock your seat; includes a tool kit and one post-session 1v1 diagnosis.",
+  },
+  {
+    q: "Do you take goods, front cash or earn a trading margin?",
+    a: "No. We do not take goods, front cash or earn any trading margin — we only charge service and full-package fees. Ad spend goes directly to the platforms and clients manage their own accounts, fully transparent.",
   },
 ];
 

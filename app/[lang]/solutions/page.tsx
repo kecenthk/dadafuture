@@ -63,7 +63,7 @@ export default async function SolutionsPage() {
 
       {/* ---------------- 整体业务模块 ---------------- */}
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.business.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">
             {copy.business.title}
@@ -100,7 +100,7 @@ export default async function SolutionsPage() {
 
       {/* ---------------- 五种合作方式 ---------------- */}
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.models.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">
             {copy.models.title}
@@ -190,7 +190,7 @@ export default async function SolutionsPage() {
 
       {/* ---------------- 五步漏斗 ---------------- */}
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.funnel.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">
             {copy.funnel.title}
@@ -224,7 +224,7 @@ export default async function SolutionsPage() {
 
       {/* ---------------- 工厂出海孵化 ---------------- */}
       <section id="incubation" className="scroll-mt-24 py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.incubation.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">
             {copy.incubation.title}
@@ -259,7 +259,7 @@ export default async function SolutionsPage() {
 
       {/* ---------------- 企业内训陪跑 ---------------- */}
       <section id="training" className="scroll-mt-24 bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.training.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">
             {copy.training.title}
@@ -302,7 +302,7 @@ export default async function SolutionsPage() {
 
       {/* ---------------- 联合运营 ---------------- */}
       <section id="joint" className="scroll-mt-24 py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.joint.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">{copy.joint.title}</h2>
           <span className="mt-3 block h-1 w-24 bg-amber-500" aria-hidden />
@@ -430,7 +430,7 @@ export default async function SolutionsPage() {
 
       {/* ---------------- 四大赛道入口 ---------------- */}
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.tracks.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">{copy.tracks.title}</h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-sub md:text-base">

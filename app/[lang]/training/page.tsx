@@ -51,7 +51,7 @@ export default async function TrainingPage() {
       />
 
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="grid gap-4 lg:grid-cols-3">
             {TRAININGS.map((t) => (
               <div
@@ -79,7 +79,7 @@ export default async function TrainingPage() {
 
       {/* 线下沙龙 · 最新一期 */}
       <section className="bg-surface py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="text-center">
             <p className="text-xs font-bold tracking-widest text-amber-700">
               {copy.salon.latestTemplate.replace("{edition}", SALON.edition)}
@@ -216,6 +216,90 @@ export default async function TrainingPage() {
                   .replace("{name}", BRAND.contactName)
                   .replace("{title}", BRAND.contactTitle)}
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI 内容获客 & AI 提效专项培训 */}
+      <section className="py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
+          <div className="flex flex-col gap-2 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">
+                {copy.modules.ai.title}
+              </h2>
+              <p className="mt-2 text-sm text-sub md:text-base">{copy.modules.ai.subtitle}</p>
+            </div>
+            <p className="text-xs font-medium tracking-wide text-sub">{copy.modules.ai.titleEn}</p>
+          </div>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,420px)_1fr] lg:items-start">
+            <div className="space-y-4">
+              {copy.modules.ai.photos.map((p) => (
+                <figure key={p.src} className="overflow-hidden rounded-[14px] bg-white p-2 ring-1 ring-line">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    className="w-full rounded-[10px] object-cover"
+                    loading="lazy"
+                  />
+                  <figcaption className="px-2 py-2 text-center text-xs text-sub">
+                    {p.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="space-y-6">
+              {copy.modules.ai.items.map((item) => (
+                <div key={item.no}>
+                  <h3 className="font-bold text-amber-700">
+                    {item.no} {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-sub md:text-base">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* IP 主理人 · 轻实体培训 */}
+      <section className="bg-surface py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
+          <div className="flex flex-col gap-2 border-b border-line pb-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.modules.ip.title}</h2>
+              <p className="mt-2 text-sm text-sub md:text-base">{copy.modules.ip.subtitle}</p>
+            </div>
+            <p className="text-xs font-medium tracking-wide text-sub">{copy.modules.ip.titleEn}</p>
+          </div>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_minmax(0,460px)] lg:items-center">
+            <div className="space-y-6">
+              {copy.modules.ip.items.map((item) => (
+                <div key={item.no}>
+                  <h3 className="font-bold text-brand-900">
+                    {item.no} {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-sub md:text-base">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div>
+              {copy.modules.ip.photos.map((p) => (
+                <figure key={p.src} className="overflow-hidden rounded-[14px] bg-white p-2 ring-1 ring-line">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    className="w-full rounded-[10px] object-cover"
+                    loading="lazy"
+                  />
+                  <figcaption className="px-2 py-2 text-center text-xs text-sub">
+                    {p.caption}
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </div>

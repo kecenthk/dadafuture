@@ -73,7 +73,7 @@ export default async function ServiceDetailPage({
       />
 
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <div className="rounded-[14px] bg-white p-6 ring-1 ring-line md:p-8">

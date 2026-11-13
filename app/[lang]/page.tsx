@@ -6,12 +6,12 @@ import CountUp from "@/components/CountUp";
 import CtaSection from "@/components/CtaSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
-import { img } from "@/lib/images";
 import { currentLocale } from "@/lib/content";
 import { getData, type DataContent } from "@/lib/content/data";
 import { getPages } from "@/lib/content/pages";
 import type { CommonCopy } from "@/lib/content/pages/zh/common";
 import type { HomeCopy } from "@/lib/content/pages/zh/home";
+import type { TrainingCopy } from "@/lib/content/pages/zh/training";
 import { localizePath, type Locale } from "@/lib/i18n/config";
 
 type SectionProps = {
@@ -19,6 +19,7 @@ type SectionProps = {
   copy: HomeCopy;
   data: DataContent;
   form: CommonCopy["form"];
+  salonCopy: TrainingCopy["salon"];
   href: (path: string) => string;
 };
 
@@ -26,52 +27,52 @@ type SectionProps = {
 function Hero({ copy, data, href }: SectionProps) {
   const { BRAND } = data;
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#F3FAFB] via-[#F3FAFB] to-[#E6F3F5]">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={img(
-          "modern ceramic tile factory production line with export containers at port in background, global trade theme, cinematic industrial photography"
-        )}
-        alt={copy.hero.heroAlt}
-        className="absolute inset-0 h-full w-full object-cover opacity-[0.13]"
-      />
-      <div className="relative mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10 pt-16 pb-20 md:pt-24 md:pb-28">
-        <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/80 px-4 py-1.5 text-xs font-medium text-brand-700 md:text-sm">
-          <BadgeCheck className="h-4 w-4" />
-          {copy.hero.badge}
-        </p>
-        <h1 className="mt-6 text-4xl leading-tight font-black text-brand-900 md:text-6xl">
-          {BRAND.slogan}
-        </h1>
-        <p className="mt-4 text-xl font-bold text-brand-700 md:text-3xl">{BRAND.positioning}</p>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-sub md:text-lg">
-          {BRAND.promise}
-          {copy.hero.promiseSuffix}
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link
-            href={href("/contact")}
-            className="flex items-center justify-center gap-2 rounded-[10px] bg-amber-500 px-8 py-3.5 text-base font-semibold text-brand-900 shadow-[0_8px_24px_rgba(22,50,58,0.10)] transition hover:bg-amber-400"
-          >
-            {copy.hero.ctaPrimary}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link
-            href={href("/contact?type=resource")}
-            className="flex items-center justify-center gap-2 rounded-[10px] border border-brand-200 bg-white px-8 py-3.5 text-base font-semibold text-brand-700 transition hover:bg-brand-50"
-          >
-            <FileDown className="h-4 w-4" />
-            {copy.hero.ctaSecondary}
-          </Link>
+    <section className="overflow-hidden bg-[#F3FAFB]">
+      <div className="mx-auto grid w-full max-w-8xl items-center gap-10 px-5 pb-16 pt-12 sm:px-8 md:pt-16 lg:grid-cols-2 lg:gap-14 lg:px-10 lg:pb-24 lg:pt-20">
+        <div>
+          <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/80 px-4 py-1.5 text-xs font-medium text-brand-700 md:text-sm">
+            <BadgeCheck className="h-4 w-4" />
+            {copy.hero.badge}
+          </p>
+          <h1 className="mt-6 text-4xl leading-tight font-black text-brand-900 md:text-6xl">
+            {BRAND.slogan}
+          </h1>
+          <p className="mt-4 text-xl font-bold text-brand-700 md:text-3xl">{BRAND.positioning}</p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-sub md:text-lg">
+            {BRAND.promise}
+            {copy.hero.promiseSuffix}
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href={href("/contact")}
+              className="flex items-center justify-center gap-2 rounded-[10px] bg-amber-500 px-8 py-3.5 text-base font-semibold text-brand-900 shadow-[0_8px_24px_rgba(22,50,58,0.10)] transition hover:bg-amber-400"
+            >
+              {copy.hero.ctaPrimary}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href={href("/contact?type=resource")}
+              className="flex items-center justify-center gap-2 rounded-[10px] border border-brand-200 bg-white px-8 py-3.5 text-base font-semibold text-brand-700 transition hover:bg-brand-50"
+            >
+              <FileDown className="h-4 w-4" />
+              {copy.hero.ctaSecondary}
+            </Link>
+          </div>
+          <div className="mt-10 grid grid-cols-2 gap-3 text-xs text-sub sm:grid-cols-4 md:text-sm">
+            {copy.hero.trust.map((t) => (
+              <div key={t} className="flex items-center gap-2">
+                <BadgeCheck className="h-4 w-4 shrink-0 text-leaf-600" />
+                {t}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 text-xs text-sub sm:grid-cols-4 md:text-sm">
-          {copy.hero.trust.map((t) => (
-            <div key={t} className="flex items-center gap-2">
-              <BadgeCheck className="h-4 w-4 shrink-0 text-leaf-600" />
-              {t}
-            </div>
-          ))}
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/about/office-gate.jpg"
+          alt={copy.hero.heroAlt}
+          className="h-[280px] w-full rounded-[14px] object-cover shadow-[0_8px_24px_rgba(22,50,58,0.10)] ring-1 ring-line sm:h-[380px] lg:h-[600px]"
+        />
       </div>
     </section>
   );
@@ -81,7 +82,7 @@ function Hero({ copy, data, href }: SectionProps) {
 function Emphasis({ copy, data }: SectionProps) {
   return (
     <section className="bg-surface py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="text-center">
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.emphasis.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">{copy.emphasis.title}</h2>
@@ -106,12 +107,12 @@ function Emphasis({ copy, data }: SectionProps) {
 }
 
 /* ---------------- S3 双轮驱动增长模型 ---------------- */
-function DualWheel({ copy, data }: SectionProps) {
+function DualWheel({ copy, data, href }: SectionProps) {
   const DUAL_WHEEL = data.DUAL_WHEEL;
   return (
     <section className="py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid w-full max-w-[1440px] items-center gap-10 px-5 sm:px-8 lg:px-10 lg:grid-cols-2">
-        <div className="overflow-hidden rounded-[14px] bg-white p-4 ring-1 ring-line">
+      <div className="mx-auto grid w-full max-w-8xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
+        <div className="mx-auto w-full max-w-[460px] overflow-hidden rounded-[14px] bg-white p-4 ring-1 ring-line">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={DUAL_WHEEL.image}
@@ -156,6 +157,13 @@ function DualWheel({ copy, data }: SectionProps) {
               </span>
             ))}
           </p>
+          <Link
+            href={href("/solutions")}
+            className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-amber-700 hover:underline"
+          >
+            {copy.dualWheel.solutionsLink}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -166,7 +174,7 @@ function DualWheel({ copy, data }: SectionProps) {
 function Stats({ data }: SectionProps) {
   return (
     <section className="bg-brand-900 py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-2 gap-8 px-5 sm:px-8 lg:px-10 lg:grid-cols-4">
+      <div className="mx-auto grid w-full max-w-8xl grid-cols-2 gap-8 px-5 sm:px-8 lg:px-10 lg:grid-cols-4">
         {data.CORE_STATS.map((s) => (
           <div key={s.label} className="text-center">
             <p className="text-4xl font-black text-amber-400 md:text-5xl">
@@ -184,7 +192,7 @@ function Stats({ data }: SectionProps) {
 function Stages({ copy, data, href }: SectionProps) {
   return (
     <section className="py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.stages.title}</h2>
           <p className="mt-2 text-base text-sub md:text-lg">{copy.stages.subtitle}</p>
@@ -232,18 +240,18 @@ function ServiceMatrix({ copy, data, href }: SectionProps) {
   const matrix = data.SERVICES.filter((s) => s.order <= 9);
   return (
     <section className="bg-surface py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.services.title}</h2>
           <p className="mt-2 text-base text-sub md:text-lg">{copy.services.subtitle}</p>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {matrix.map((s) => (
             <Link
               key={s.slug}
               href={href(`/services/${s.slug}`)}
               className={`group relative flex h-full flex-col rounded-[14px] bg-white p-6 ring-1 transition hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,128,144,0.12)] lg:p-7 ${
-                s.featured ? "ring-2 ring-amber-600 sm:col-span-2 lg:row-span-2" : "ring-line"
+                s.featured ? "ring-2 ring-amber-600" : "ring-line"
               }`}
             >
               {s.featured && (
@@ -259,11 +267,7 @@ function ServiceMatrix({ copy, data, href }: SectionProps) {
                   {String(s.order).padStart(2, "0")}
                 </span>
               </div>
-              <h3
-                className={`mt-4 font-bold text-brand-900 group-hover:text-amber-700 ${
-                  s.featured ? "text-xl lg:text-2xl" : "text-lg"
-                }`}
-              >
+              <h3 className="mt-4 text-lg font-bold text-brand-900 group-hover:text-amber-700">
                 {s.name}
               </h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-sub">{s.short}</p>
@@ -292,7 +296,7 @@ function CaseWall({ copy, data, href }: SectionProps) {
   const featured = data.CASES.slice(0, 6);
   return (
     <section className="bg-surface py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.cases.title}</h2>
@@ -339,63 +343,66 @@ function CaseWall({ copy, data, href }: SectionProps) {
 
 /* ---------------- S8 为什么选择 ---------------- */
 function WhyUs({ copy, data, href }: SectionProps) {
+  const founder = data.TEAM[0];
   return (
     <section className="py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.why.title}</h2>
           <p className="mt-2 text-base text-sub md:text-lg">{copy.why.subtitle}</p>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {data.TEAM.slice(0, 4).map((t) => (
-            <div
-              key={t.name}
-              className="overflow-hidden rounded-[14px] bg-white ring-1 ring-line transition hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,128,144,0.12)]"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={t.image}
-                alt={t.name}
-                className="h-44 w-full object-cover object-top"
-                loading="lazy"
-              />
-              <div className="p-5">
-                <h3 className="font-bold text-brand-900">{t.name}</h3>
-                <p className="mt-0.5 text-xs font-medium text-amber-700">{t.role}</p>
-                <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-sub">{t.bio}</p>
-              </div>
+        <Link
+          href={href("/about")}
+          className="group mt-10 grid overflow-hidden rounded-[14px] bg-white ring-1 ring-line transition hover:shadow-[0_8px_24px_rgba(0,128,144,0.12)] sm:grid-cols-[280px_1fr]"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={founder.image}
+            alt={founder.name}
+            className="h-56 w-full object-cover object-top sm:h-full sm:max-h-[360px]"
+            loading="lazy"
+          />
+          <div className="flex flex-col justify-center p-6 md:p-8">
+            <h3 className="text-xl font-bold text-brand-900">{founder.name}</h3>
+            <p className="mt-1 text-sm font-medium text-amber-700">{founder.role}</p>
+            <p className="mt-3 text-sm leading-relaxed text-sub">{founder.bio}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {founder.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-800"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {data.ADVISORS.map((a) => (
-            <div key={a.name} className="rounded-[14px] bg-brand-900 p-5">
-              <p className="font-bold text-white">
-                {a.name}
-                <span className="ml-2 text-xs font-medium text-amber-400">{a.role}</span>
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-brand-100">{a.duty}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 text-center">
-          <Link
-            href={href("/about")}
-            className="inline-flex items-center gap-1 text-sm font-semibold text-amber-700 hover:underline"
-          >
-            {copy.why.aboutLink} <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+            <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-amber-700 group-hover:underline">
+              {copy.why.aboutLink} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </span>
+          </div>
+        </Link>
+
       </div>
     </section>
   );
 }
 
 /* ---------------- S9 培训赋能 + 沙龙 ---------------- */
-function Training({ copy, data, href }: SectionProps) {
+function Training({ copy, data, href, salonCopy }: SectionProps) {
+  const { BRAND, SALON } = data;
+  const salonInfo = [
+    { label: salonCopy.timeLabel, value: SALON.date, note: SALON.time },
+    { label: salonCopy.placeLabel, value: SALON.venue, note: salonCopy.venueNote },
+    { label: salonCopy.seatsLabel, value: SALON.seats, note: SALON.audience },
+    {
+      label: salonCopy.feeLabel,
+      value: salonCopy.feeTemplate.replace("{price}", SALON.price),
+      note: SALON.priceNote,
+    },
+  ];
   return (
     <section className="bg-surface py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.training.title}</h2>
           <p className="mt-2 text-base text-sub md:text-lg">{copy.training.subtitle}</p>
@@ -419,21 +426,88 @@ function Training({ copy, data, href }: SectionProps) {
             </div>
           ))}
         </div>
-        <div className="mt-8 rounded-[14px] bg-brand-900 p-6 md:p-8">
-          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+        {/* 线下沙龙 · 最新一期 */}
+        <div className="mt-12 rounded-[14px] bg-white p-6 ring-1 ring-line md:p-8">
+          <div className="grid gap-8 lg:grid-cols-[1fr_minmax(0,520px)] lg:items-start lg:gap-12">
             <div>
-              <p className="text-xs font-bold tracking-widest text-amber-400">
-                {copy.training.eventEyebrow}
+              <p className="text-xs font-bold tracking-widest text-amber-700">
+                {salonCopy.latestTemplate.replace("{edition}", SALON.edition)}
               </p>
-              <h3 className="mt-2 text-xl font-bold text-white">{copy.training.eventTitle}</h3>
-              <p className="mt-2 text-sm text-brand-100">{copy.training.eventDesc}</p>
+              <h3 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">{salonCopy.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-sub md:text-base">{salonCopy.desc}</p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {salonInfo.map((item) => (
+                  <div key={item.label} className="rounded-[10px] bg-surface p-4">
+                    <p className="text-xs font-bold tracking-widest text-amber-700">{item.label}</p>
+                    <p className="mt-1.5 text-base font-bold text-brand-900">{item.value}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-sub">{item.note}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link
+                  href={href("/contact?type=salon")}
+                  className="inline-flex w-max items-center gap-2 rounded-[10px] bg-amber-500 px-6 py-3 text-sm font-semibold text-brand-900 transition hover:bg-amber-400"
+                >
+                  {salonCopy.signupCta}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <p className="text-xs text-sub">
+                  {salonCopy.contactPrefix}
+                  <span className="font-bold text-brand-800">{BRAND.contactPhone}</span>
+                  {salonCopy.contactSuffix
+                    .replace("{name}", BRAND.contactName)
+                    .replace("{title}", BRAND.contactTitle)}
+                </p>
+              </div>
             </div>
-            <Link
-              href={href("/training")}
-              className="shrink-0 rounded-[10px] bg-amber-500 px-6 py-3 text-sm font-semibold text-brand-900 transition hover:bg-amber-400"
-            >
-              {copy.training.eventCta}
-            </Link>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              {salonCopy.images.map((p) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={p.src}
+                  src={p.src}
+                  alt={p.alt}
+                  className="w-full rounded-[10px] ring-1 ring-line"
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="mt-10">
+            <h4 className="text-center text-lg font-bold text-brand-900">{salonCopy.speakersTitle}</h4>
+            <div className="mt-6 grid gap-4 lg:grid-cols-3">
+              {SALON.speakers.map((s) => (
+                <div
+                  key={s.no}
+                  className="flex h-full flex-col rounded-[14px] border-t-4 border-amber-600 bg-surface p-5"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-brand-900 px-2.5 py-1 text-xs font-black text-amber-400">
+                      {s.no}
+                    </span>
+                    <span className="rounded-full bg-white px-2.5 py-1 text-xs font-medium text-brand-800">
+                      {s.tag}
+                    </span>
+                  </div>
+                  <h5 className="mt-3 font-bold text-brand-900">{s.topic}</h5>
+                  <p className="mt-1 text-xs text-sub">
+                    {s.name} · {s.role}
+                  </p>
+                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-sub">{s.desc}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {s.metrics.map((m) => (
+                      <span
+                        key={m}
+                        className="rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-700"
+                      >
+                        {m}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -446,7 +520,7 @@ function ResourcePack({ copy, data, form }: SectionProps) {
   const RESOURCE_PACK = data.RESOURCE_PACK;
   return (
     <section className="py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid w-full max-w-[1440px] items-center gap-10 px-5 sm:px-8 lg:px-10 lg:grid-cols-2">
+      <div className="mx-auto grid w-full max-w-8xl items-center gap-10 px-5 sm:px-8 lg:px-10 lg:grid-cols-2">
         <div>
           <p className="text-xs font-bold tracking-widest text-amber-700">{copy.resource.eyebrow}</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-900 md:text-3xl">{RESOURCE_PACK.title}</h2>
@@ -482,7 +556,7 @@ function ResourcePack({ copy, data, form }: SectionProps) {
 function FaqSection({ copy, data, href }: SectionProps) {
   return (
     <section className="bg-surface py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[900px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.faq.title}</h2>
           <p className="mt-2 text-sm text-sub">{copy.faq.subtitle}</p>
@@ -513,7 +587,14 @@ export default async function HomePage() {
   const pages = await getPages();
   const copy = pages.home;
   const href = (path: string) => localizePath(path, locale);
-  const props: SectionProps = { locale, copy, data, href, form: pages.common.form };
+  const props: SectionProps = {
+    locale,
+    copy,
+    data,
+    href,
+    form: pages.common.form,
+    salonCopy: pages.training.salon,
+  };
 
   return (
     <>

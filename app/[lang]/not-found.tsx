@@ -11,7 +11,7 @@ export default async function NotFound() {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-[720px] text-center">
           <p className="text-xs font-bold tracking-widest text-amber-700">404</p>
           <h1 className="mt-2 text-3xl font-bold text-brand-900 md:text-4xl">{copy.title}</h1>

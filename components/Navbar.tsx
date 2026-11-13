@@ -59,7 +59,7 @@ export default function Navbar({
         scrolled || open ? "border-line shadow-[0_1px_2px_rgba(22,50,58,0.06)]" : "border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-[60px] w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-10">
+      <div className="mx-auto flex h-[60px] w-full max-w-8xl items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-10">
         <Link
           href={href("/")}
           className="flex shrink-0 items-center gap-2.5"

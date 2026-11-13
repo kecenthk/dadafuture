@@ -55,7 +55,7 @@ export default async function PageHero({
           <div className="absolute inset-0 bg-gradient-to-r from-[#F3FAFB] via-[#F3FAFB]/85 to-[#E6F3F5]/70" />
         </>
       )}
-      <div className="relative mx-auto w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 lg:px-10 lg:pt-14 lg:pb-16">
+      <div className="relative mx-auto w-full max-w-8xl px-5 pt-10 pb-12 sm:px-8 lg:px-10 lg:pt-14 lg:pb-16">
         <nav
           aria-label={copy.nav.ariaBreadcrumb}
           className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-sub"

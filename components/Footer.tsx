@@ -12,7 +12,7 @@ export default async function Footer({ locale }: { locale: Locale }) {
 
   return (
     <footer className="bg-brand-900 text-white/[0.72]">
-      <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-4 lg:px-10">
+      <div className="mx-auto grid w-full max-w-8xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-4 lg:px-10">
         <div>
           <div className="flex items-center gap-2.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -26,7 +26,6 @@ export default async function Footer({ locale }: { locale: Locale }) {
           <p className="mt-4 text-sm leading-relaxed">
             {BRAND.positioning}。{BRAND.slogan}——{BRAND.promise}。
           </p>
-          <p className="mt-3 text-xs text-white/[0.5]">{BRAND.icp}</p>
         </div>
         <div>
           <h3 className="text-sm font-bold tracking-wide text-white">{c.solutionsTitle}</h3>
@@ -82,6 +81,11 @@ export default async function Footer({ locale }: { locale: Locale }) {
               {c.qrCaption} · {BRAND.contactName}
             </p>
           </div>
+          <p className="mt-5 text-xs leading-relaxed text-white/[0.5]">
+            {c.company}
+            <br />
+            {c.address}
+          </p>
         </div>
       </div>
       <div className="border-t border-white/[0.12] bg-[#00323A] py-5 text-center text-xs text-white/[0.6]">

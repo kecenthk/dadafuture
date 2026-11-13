@@ -36,7 +36,7 @@ export default async function CasesPage() {
         )}
       />
       <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-10">
           <h2 className="text-2xl font-bold text-brand-900 md:text-3xl">{copy.section.title}</h2>
           <p className="mt-2 text-sm text-sub">{copy.section.subtitle}</p>
           <div className="mt-8">

@@ -7,9 +7,9 @@ import type { HomeCopy } from "../zh/home";
 export const homeCopy: HomeCopy = {
   hero: {
     badge: "Brand incubator · 17 years of hands-on marketing · 50+ incubated and signed IPs · 9+ platforms covered",
-    heroAlt: "Factory export and global trade scene",
+    heroAlt: "The DADAFUTURE company entrance",
     promiseSuffix:
-      " — offshore digital incubation that upgrades manufacturing brands going global: no inventory, no advance funding, no trade margin, covering new technology, new materials, new energy and smart manufacturing.",
+      " — helping manufacturing brands upgrade as they go global: no inventory, no advance funding, no trade margin, covering new technology, new materials, new energy and smart manufacturing.",
     ctaPrimary: "Get a Free Growth Plan",
     ctaSecondary: "Get the Export Resource Pack",
     trust: ["Dedicated account team", "Transparent pricing", "Ad spend paid to platforms", "Results in 90 days"],
@@ -23,7 +23,8 @@ export const homeCopy: HomeCopy = {
     eyebrow: "Brand Incubation Engine",
     imageAlt: "DADAFUTURE dual-wheel growth model",
     suffix: " — both wheels must turn together for the brand to move",
-    tracksLabel: "Three hands-on tracks: ",
+    tracksLabel: "Four tracks: ",
+    solutionsLink: "See solutions and partnership models",
   },
   stages: {
     title: "We don't sell one-off traffic — we deliver end-to-end growth",
@@ -50,11 +51,6 @@ export const homeCopy: HomeCopy = {
   training: {
     title: "Training: practice guides practice, and study visits make it real",
     subtitle: "Enablement programs and bootcamps — proven methods passed on to partner companies",
-    eventEyebrow: "Next Session",
-    eventTitle: "“Going Global + AI” Offline Practice Salon · Session 2",
-    eventDesc:
-      "November 19 (Thursday) 13:00–17:30 · ¥1980 per person · only 20 seats · includes a tool kit and one 1v1 diagnosis after the session",
-    eventCta: "See the salon and register",
   },
   resource: {
     eyebrow: "Limited-Time Offer",
