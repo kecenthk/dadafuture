@@ -44,6 +44,20 @@ body {
   font-family: var(--font-sans);
 }
 
+/* 繁中（香港）字体优先：PingFang HK / 微软正黑 / Noto Sans TC */
+:lang(zh-HK) body,
+body:lang(zh-HK) {
+  font-family: "PingFang HK", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC",
+    var(--font-sans);
+}
+
+/* 英文排版：拉丁字形优先 */
+:lang(en) body,
+body:lang(en) {
+  font-family: "Segoe UI", Roboto, -apple-system, system-ui, "Helvetica Neue", Arial,
+    var(--font-sans);
+}
+
 ::selection {
   background: var(--color-amber-400);
   color: var(--color-brand-900);

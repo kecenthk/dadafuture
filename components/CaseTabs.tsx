@@ -3,19 +3,32 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { CASES, SOLUTIONS } from "@/lib/data";
+import type { DataContent } from "@/lib/content/data";
+import type { CasesCopy } from "@/lib/content/pages/zh/cases";
+import { localizePath, type Locale } from "@/lib/i18n/config";
 
-const TABS = [{ slug: "all", name: "全部" }, ...SOLUTIONS.map((s) => ({ slug: s.slug, name: s.name }))];
+type Case = DataContent["CASES"][number];
 
 /** 案例中心：四大赛道 tab + 数据卡片 */
-export default function CaseTabs() {
+export default function CaseTabs({
+  cases,
+  tracks,
+  copy,
+  locale,
+}: {
+  cases: Case[];
+  tracks: { slug: string; name: string }[];
+  copy: CasesCopy["tabs"];
+  locale: Locale;
+}) {
   const [tab, setTab] = useState("all");
-  const list = tab === "all" ? CASES : CASES.filter((c) => c.track.includes(tab));
+  const tabs = [{ slug: "all", name: copy.all }, ...tracks];
+  const list = tab === "all" ? cases : cases.filter((c) => c.track.includes(tab));
 
   return (
     <div>
       <div className="flex flex-wrap gap-2">
-        {TABS.map((t) => (
+        {tabs.map((t) => (
           <button
             key={t.slug}
             type="button"
@@ -60,13 +73,13 @@ export default function CaseTabs() {
         ))}
       </div>
       <div className="mt-10 rounded-[14px] bg-brand-900 p-6 text-center md:p-8">
-        <h2 className="text-lg font-bold text-white md:text-xl">您的工厂，可能就是下一个案例</h2>
-        <p className="mt-2 text-sm text-brand-100">留下产品与目标市场，免费做一次出海契合度诊断。</p>
+        <h2 className="text-lg font-bold text-white md:text-xl">{copy.ctaTitle}</h2>
+        <p className="mt-2 text-sm text-brand-100">{copy.ctaDesc}</p>
         <Link
-          href="/contact"
+          href={localizePath("/contact", locale)}
           className="mt-5 inline-flex items-center gap-2 rounded-[10px] bg-amber-500 px-8 py-3 text-sm font-semibold text-brand-900 transition hover:bg-amber-400"
         >
-          免费获取出海方案 <ArrowRight className="h-4 w-4" />
+          {copy.cta} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </div>

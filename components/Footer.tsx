@@ -1,7 +1,15 @@
 import Link from "next/link";
-import { BRAND, SERVICES, SOLUTIONS } from "@/lib/data";
+import { getData } from "@/lib/content/data";
+import { getCommonCopy } from "@/lib/content/pages";
+import { localizePath, type Locale } from "@/lib/i18n/config";
 
-export default function Footer() {
+export default async function Footer({ locale }: { locale: Locale }) {
+  const data = await getData();
+  const copy = await getCommonCopy();
+  const { BRAND, SOLUTIONS, SERVICES } = data;
+  const c = copy.footer;
+  const href = (path: string) => localizePath(path, locale);
+
   return (
     <footer className="bg-brand-900 text-white/[0.72]">
       <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-4 lg:px-10">
@@ -10,7 +18,7 @@ export default function Footer() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/logo.png"
-              alt="搭搭未来 DADAFUTURE 品牌标识"
+              alt={copy.nav.logoAlt}
               className="h-9 w-9 rounded-[10px] object-contain"
             />
             <span className="text-lg font-bold text-white">{BRAND.name}</span>
@@ -21,23 +29,26 @@ export default function Footer() {
           <p className="mt-3 text-xs text-white/[0.5]">{BRAND.icp}</p>
         </div>
         <div>
-          <h3 className="text-sm font-bold tracking-wide text-white">四大赛道</h3>
+          <h3 className="text-sm font-bold tracking-wide text-white">{c.solutionsTitle}</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             {SOLUTIONS.map((s) => (
               <li key={s.slug}>
-                <Link href={`/solutions/${s.slug}`} className="transition hover:text-amber-400">
-                  {s.name}出海（{s.scope}）
+                <Link
+                  href={href(`/solutions/${s.slug}`)}
+                  className="transition hover:text-amber-400"
+                >
+                  {c.solutionsLink.replace("{name}", s.name).replace("{scope}", s.scope)}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h3 className="text-sm font-bold tracking-wide text-white">核心服务</h3>
+          <h3 className="text-sm font-bold tracking-wide text-white">{c.servicesTitle}</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             {SERVICES.slice(0, 6).map((s) => (
               <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="transition hover:text-amber-400">
+                <Link href={href(`/services/${s.slug}`)} className="transition hover:text-amber-400">
                   {s.name}
                 </Link>
               </li>
@@ -45,16 +56,16 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-sm font-bold tracking-wide text-white">联系我们</h3>
+          <h3 className="text-sm font-bold tracking-wide text-white">{c.contactTitle}</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             <li>
-              业务联系：{BRAND.contactName} · {BRAND.contactTitle}
+              {c.contactPerson}：{BRAND.contactName} · {BRAND.contactTitle}
               <span className="ml-1 font-semibold text-white">{BRAND.contactPhone}</span>
             </li>
-            <li>微信同号，备注「出海方案」优先通过</li>
+            <li>{c.wechatTip}</li>
             <li>
-              <Link href="/contact" className="font-semibold text-amber-400 transition hover:text-amber-500">
-                免费获取出海方案 →
+              <Link href={href("/contact")} className="font-semibold text-amber-400 transition hover:text-amber-500">
+                {c.ctaLink}
               </Link>
             </li>
           </ul>
@@ -63,25 +74,24 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={BRAND.wechatQr}
-                alt={`微信二维码 · 扫码联系${BRAND.contactName}`}
+                alt={`${c.qrAlt}${BRAND.contactName}`}
                 className="h-full w-full object-contain"
               />
             </div>
             <p className="mt-2 w-[104px] text-center text-[10px] leading-tight text-white/[0.55]">
-              微信扫码 · {BRAND.contactName}
+              {c.qrCaption} · {BRAND.contactName}
             </p>
           </div>
         </div>
       </div>
       <div className="border-t border-white/[0.12] bg-[#00323A] py-5 text-center text-xs text-white/[0.6]">
         <p>
-          © 2026 {BRAND.name} {BRAND.en} · {BRAND.slogan} ·
-          工厂出海 / 外贸独立站 / SEO / GEO / 海外营销
+          © 2026 {BRAND.name} {BRAND.en} · {BRAND.slogan} · {c.copyright}
         </p>
         <p className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-          <Link href="/privacy" className="transition hover:text-amber-400">隐私政策</Link>
-          <Link href="/terms" className="transition hover:text-amber-400">服务条款</Link>
-          <span>业务联系：{BRAND.contactPhone}</span>
+          <Link href={href("/privacy")} className="transition hover:text-amber-400">{c.privacy}</Link>
+          <Link href={href("/terms")} className="transition hover:text-amber-400">{c.terms}</Link>
+          <span>{c.phoneLabel}：{BRAND.contactPhone}</span>
         </p>
       </div>
     </footer>

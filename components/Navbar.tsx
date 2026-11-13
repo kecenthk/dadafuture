@@ -4,47 +4,23 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
-import { BRAND } from "@/lib/data";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { localizePath, stripLocale, type Locale } from "@/lib/i18n/config";
+import type { CommonCopy } from "@/lib/content/pages/zh/common";
+import type { DataContent } from "@/lib/content/data";
 
-/** 解决方案下拉：每个赛道的定位 */
-const SOLUTION_MENU = [
-  {
-    href: "/solutions/home",
-    name: "大家居",
-    scope: "建材 / 家居 / 照明 / 机械",
-    position: "短视频种草 + 精准询盘，B 端经销商与 C 端业主双线获客",
-  },
-  {
-    href: "/solutions/beauty",
-    name: "大美丽",
-    scope: "美妆 / 个护 / 包装",
-    position: "多语种直播起量 + 公私域联动，用复购沉淀品牌",
-  },
-  {
-    href: "/solutions/health",
-    name: "大健康",
-    scope: "保健品 / 器械",
-    position: "合规内容建立信任，礼盒单品打穿高客单场景",
-  },
-  {
-    href: "/solutions/industry",
-    name: "产业升级",
-    scope: "科技 / 新材料 / 新能源",
-    position: "LinkedIn + Google 精准获客，离岸数字孵化 B 端客户",
-  },
-];
+type NavCopy = CommonCopy["nav"];
+type Brand = DataContent["BRAND"];
 
-const NAV = [
-  { href: "/", label: "首页" },
-  { href: "/solutions", label: "解决方案" },
-  { href: "/services", label: "服务产品" },
-  { href: "/cases", label: "案例中心" },
-  { href: "/about", label: "关于我们" },
-  { href: "/training", label: "培训赋能" },
-  { href: "/news", label: "新闻动态" },
-];
-
-export default function Navbar() {
+export default function Navbar({
+  locale,
+  copy,
+  brand,
+}: {
+  locale: Locale;
+  copy: NavCopy;
+  brand: Brand;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -56,8 +32,26 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const cleanPath = stripLocale(pathname || "/");
+  const href = (path: string) => localizePath(path, locale);
+
+  const isActive = (path: string) =>
+    path === "/" ? cleanPath === "/" : cleanPath === path || cleanPath.startsWith(`${path}/`);
+
+  const NAV = [
+    { href: "/", label: copy.home },
+    { href: "/solutions", label: copy.solutions },
+    { href: "/services", label: copy.services },
+    { href: "/cases", label: copy.cases },
+    { href: "/about", label: copy.about },
+    { href: "/training", label: copy.training },
+    { href: "/news", label: copy.news },
+  ];
+
+  const SOLUTION_MENU = copy.solutionMenu.map((s) => ({
+    ...s,
+    href: `/solutions/${s.slug}`,
+  }));
 
   return (
     <header
@@ -66,28 +60,33 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-[60px] w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-10">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="搭搭未来首页" onClick={() => setOpen(false)}>
+        <Link
+          href={href("/")}
+          className="flex shrink-0 items-center gap-2.5"
+          aria-label={copy.ariaHome}
+          onClick={() => setOpen(false)}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/logo.png"
-            alt="搭搭未来 DADAFUTURE 品牌标识"
+            alt={copy.logoAlt}
             className="h-9 w-9 rounded-[10px] object-contain"
           />
           <span className="leading-tight">
-            <span className="block text-base font-bold text-ink">{BRAND.name}</span>
+            <span className="block text-base font-bold text-ink">{brand.name}</span>
             <span className="block text-[10px] tracking-widest text-sub">
-              {BRAND.en} · 一起搭、搭未来
+              {brand.en} · {copy.brandSub}
             </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="主导航">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={copy.ariaMain}>
           {NAV.map((item) =>
             item.href === "/solutions" ? (
               <div key={item.href} className="group relative">
                 <Link
-                  href={item.href}
-                  className={`flex items-center gap-1 border-b-2 px-3 py-2 text-sm font-medium transition ${
+                  href={href(item.href)}
+                  className={`flex items-center gap-1 whitespace-nowrap border-b-2 px-3 py-2 text-sm font-medium transition ${
                     isActive(item.href)
                       ? "border-brand-600 text-brand-600"
                       : "border-transparent text-ink hover:border-brand-200 hover:text-brand-600"
@@ -105,7 +104,7 @@ export default function Navbar() {
                     {SOLUTION_MENU.map((s) => (
                       <Link
                         key={s.href}
-                        href={s.href}
+                        href={href(s.href)}
                         className="rounded-[10px] px-3 py-2.5 transition hover:bg-brand-50"
                       >
                         <span className="flex flex-wrap items-baseline gap-x-2">
@@ -118,11 +117,11 @@ export default function Navbar() {
                       </Link>
                     ))}
                     <Link
-                      href="/solutions"
+                      href={href("/solutions")}
                       className="col-span-2 mt-1 flex items-center justify-between rounded-[10px] bg-brand-900 px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-800"
                     >
-                      <span>解决方案总览</span>
-                      <span className="text-xs font-medium text-amber-400">五种合作方式 →</span>
+                      <span>{copy.solutionsOverview}</span>
+                      <span className="text-xs font-medium text-amber-400">{copy.coopHint}</span>
                     </Link>
                   </div>
                 </div>
@@ -130,8 +129,8 @@ export default function Navbar() {
             ) : (
               <Link
                 key={item.href}
-                href={item.href}
-                className={`border-b-2 px-3 py-2 text-sm font-medium transition ${
+                href={href(item.href)}
+                className={`whitespace-nowrap border-b-2 px-3 py-2 text-sm font-medium transition ${
                   isActive(item.href)
                     ? "border-brand-600 text-brand-600"
                     : "border-transparent text-ink hover:border-brand-200 hover:text-brand-600"
@@ -142,18 +141,19 @@ export default function Navbar() {
             )
           )}
           <Link
-            href="/contact"
-            className="ml-3 rounded-[10px] bg-amber-500 px-5 py-2.5 text-sm font-semibold text-brand-900 transition hover:bg-amber-400"
+            href={href("/contact")}
+            className="ml-3 whitespace-nowrap rounded-[10px] bg-amber-500 px-5 py-2.5 text-sm font-semibold text-brand-900 transition hover:bg-amber-400"
           >
-            免费获取出海方案
+            {copy.cta}
           </Link>
+          <LanguageSwitcher locale={locale} label={copy.langSwitchLabel} />
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
           <a
-            href={`tel:${BRAND.contactPhone.replace(/\s/g, "")}`}
+            href={`tel:${brand.contactPhone.replace(/\s/g, "")}`}
             className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-line text-brand-700"
-            aria-label="拨打电话"
+            aria-label={copy.ariaPhone}
           >
             <Phone className="h-4 w-4" />
           </a>
@@ -161,7 +161,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setOpen(!open)}
             className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-line text-ink"
-            aria-label={open ? "关闭菜单" : "打开菜单"}
+            aria-label={open ? copy.ariaClose : copy.ariaOpen}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -169,12 +169,12 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-line bg-white px-5 pb-4 sm:px-8 lg:hidden" aria-label="移动端导航">
+        <nav className="border-t border-line bg-white px-5 pb-4 sm:px-8 lg:hidden" aria-label={copy.ariaMobile}>
           <div className="flex flex-col gap-1 pt-3">
             {NAV.map((item) => (
               <div key={item.href}>
                 <Link
-                  href={item.href}
+                  href={href(item.href)}
                   onClick={() => setOpen(false)}
                   className={`block rounded-[10px] px-3 py-2.5 text-sm font-medium ${
                     isActive(item.href)
@@ -189,7 +189,7 @@ export default function Navbar() {
                     {SOLUTION_MENU.map((s) => (
                       <Link
                         key={s.href}
-                        href={s.href}
+                        href={href(s.href)}
                         onClick={() => setOpen(false)}
                         className="rounded-[10px] px-3 py-2 transition hover:bg-surface"
                       >
@@ -207,13 +207,14 @@ export default function Navbar() {
               </div>
             ))}
             <Link
-              href="/contact"
+              href={href("/contact")}
               onClick={() => setOpen(false)}
               className="mt-1 rounded-[10px] bg-amber-500 px-4 py-3 text-center text-sm font-semibold text-brand-900"
             >
-              免费获取出海方案
+              {copy.cta}
             </Link>
           </div>
+          <LanguageSwitcher locale={locale} label={copy.langSwitchLabel} variant="mobile" />
         </nav>
       )}
     </header>

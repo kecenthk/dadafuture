@@ -7,7 +7,13 @@ const INTERVAL = 5000;
 const DURATION = 700;
 
 /** 案例轮播：一个案例一行，自动循环切换 */
-export default function CaseCarousel({ cases }: { cases: JointCase[] }) {
+export default function CaseCarousel({
+  cases,
+  viewLabel,
+}: {
+  cases: JointCase[];
+  viewLabel: string;
+}) {
   const count = cases.length;
   const [index, setIndex] = useState(0);
   const [animated, setAnimated] = useState(true);
@@ -110,7 +116,7 @@ export default function CaseCarousel({ cases }: { cases: JointCase[] }) {
             <button
               key={c.title}
               type="button"
-              aria-label={`查看案例：${c.title}`}
+              aria-label={`${viewLabel}${c.title}`}
               aria-current={active === i}
               onClick={() => {
                 setAnimated(true);

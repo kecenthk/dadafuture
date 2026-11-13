@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { currentLocale } from "@/lib/content";
+import { getCommonCopy } from "@/lib/content/pages";
+import { localizePath } from "@/lib/i18n/config";
 
 const SITE = "https://www.dadafuture.com";
 
 /** 内页统一 Hero（浅底青字）+ 面包屑 */
-export default function PageHero({
+export default async function PageHero({
   title,
   subtitle,
   description,
@@ -16,9 +19,12 @@ export default function PageHero({
   image?: string;
   parent?: { href: string; label: string };
 }) {
+  const locale = await currentLocale();
+  const copy = await getCommonCopy();
+  const href = (path: string) => localizePath(path, locale);
   const crumbs = [
-    { name: "首页", url: `${SITE}/` },
-    ...(parent ? [{ name: parent.label, url: `${SITE}${parent.href}` }] : []),
+    { name: copy.nav.home, url: `${SITE}${href("/")}` },
+    ...(parent ? [{ name: parent.label, url: `${SITE}${href(parent.href)}` }] : []),
     { name: title, url: "" },
   ];
   const breadcrumbJsonLd = {
@@ -50,14 +56,17 @@ export default function PageHero({
         </>
       )}
       <div className="relative mx-auto w-full max-w-[1440px] px-5 pt-10 pb-12 sm:px-8 lg:px-10 lg:pt-14 lg:pb-16">
-        <nav aria-label="面包屑" className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-sub">
-          <Link href="/" className="transition hover:text-brand-700">
-            首页
+        <nav
+          aria-label={copy.nav.ariaBreadcrumb}
+          className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-sub"
+        >
+          <Link href={href("/")} className="transition hover:text-brand-700">
+            {copy.nav.home}
           </Link>
           {parent && (
             <>
               <span aria-hidden="true">/</span>
-              <Link href={parent.href} className="transition hover:text-brand-700">
+              <Link href={href(parent.href)} className="transition hover:text-brand-700">
                 {parent.label}
               </Link>
             </>

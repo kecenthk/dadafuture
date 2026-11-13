@@ -3,19 +3,26 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { BRAND } from "@/lib/data";
+import type { CommonCopy } from "@/lib/content/pages/zh/common";
+import type { DataContent } from "@/lib/content/data";
 
-const BUDGETS = ["10 万以内", "10–30 万", "30–50 万", "50–100 万", "100 万以上"];
+type FormCopy = CommonCopy["form"];
 
 /** 联系/留资表单：公司 / 产品 SKU / 目标市场 / 产能成本区间 / 当前卡点 */
-export default function ContactForm() {
+export default function ContactForm({
+  copy,
+  brand,
+}: {
+  copy: FormCopy;
+  brand: DataContent["BRAND"];
+}) {
   const params = useSearchParams();
   const intent = params.get("type") === "resource" ? "resource" : "plan";
   const [form, setForm] = useState({
     company: "",
     product: "",
     market: "",
-    budget: BUDGETS[1],
+    budget: copy.budgets[1],
     pain: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -30,10 +37,10 @@ export default function ContactForm() {
 
   const validate = () => {
     const next: Record<string, string> = {};
-    if (!form.company.trim()) next.company = "请填写公司名称";
-    if (!form.product.trim()) next.product = "请填写想打出的爆款产品（SKU 级）";
-    if (!form.market.trim()) next.market = "请填写目标市场";
-    if (!form.pain.trim()) next.pain = "请填写当前卡在哪一步";
+    if (!form.company.trim()) next.company = copy.companyError;
+    if (!form.product.trim()) next.product = copy.productError;
+    if (!form.market.trim()) next.market = copy.marketError;
+    if (!form.pain.trim()) next.pain = copy.painError;
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -58,15 +65,14 @@ export default function ContactForm() {
     return (
       <div className="rounded-[14px] bg-white p-8 text-center ring-1 ring-line md:p-10">
         <CheckCircle2 className="mx-auto h-12 w-12 text-leaf-600" />
-        <h3 className="mt-4 text-xl font-bold text-brand-800">提交成功</h3>
+        <h3 className="mt-4 text-xl font-bold text-brand-800">{copy.successTitle}</h3>
         <p className="mt-2 text-sm leading-relaxed text-sub">
-          {intent === "resource"
-            ? "外贸资料包领取申请已收到，审核通过后将发送领取方式。"
-            : "出海方案申请已收到，我们会尽快与您联系。"}
+          {intent === "resource" ? copy.successResource : copy.successPlan}
           <br />
-          也可以直接添加微信：
+          {copy.successWechatPrefix}
           <span className="font-semibold text-amber-700">
-            {BRAND.contactName} · {BRAND.contactTitle} {BRAND.contactPhone}（微信同号）
+            {brand.contactName} · {brand.contactTitle} {brand.contactPhone}
+            {copy.wechatSuffix}
           </span>
         </p>
       </div>
@@ -81,51 +87,49 @@ export default function ContactForm() {
   return (
     <form onSubmit={submit} className="rounded-[14px] bg-white p-6 ring-1 ring-line md:p-8" noValidate>
       <p className="mb-5 rounded-[10px] bg-surface px-4 py-3 text-xs leading-relaxed text-brand-700">
-        {intent === "resource"
-          ? "您正在申请：价值 199 元外贸资料包（含爆款公式作战大图、销冠转化全流程等 6 项权益）。"
-          : "您正在申请：免费出海方案（先做市场调研，评估产品与市场的契合度）。"}
+        {intent === "resource" ? copy.intentResource : copy.intentPlan}
       </p>
       <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="company">
-            公司名称 <span className="text-red-500">*</span>
+            {copy.companyLabel} <span className="text-red-500">*</span>
           </label>
-          <input id="company" className={inputCls("company")} placeholder="例如：XX 陶瓷有限公司" value={form.company} onChange={set("company")} />
+          <input id="company" className={inputCls("company")} placeholder={copy.companyPlaceholder} value={form.company} onChange={set("company")} />
           {errors.company && <p className="mt-1 text-xs text-red-500">{errors.company}</p>}
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="product">
-            想打出的爆款产品（SKU 级） <span className="text-red-500">*</span>
+            {copy.productLabel} <span className="text-red-500">*</span>
           </label>
-          <input id="product" className={inputCls("product")} placeholder="例如：800×800 大理石纹瓷砖" value={form.product} onChange={set("product")} />
+          <input id="product" className={inputCls("product")} placeholder={copy.productPlaceholder} value={form.product} onChange={set("product")} />
           {errors.product && <p className="mt-1 text-xs text-red-500">{errors.product}</p>}
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="market">
-            目标市场 <span className="text-red-500">*</span>
+            {copy.marketLabel} <span className="text-red-500">*</span>
           </label>
-          <input id="market" className={inputCls("market")} placeholder="例如：东南亚 / 中东 / 欧美" value={form.market} onChange={set("market")} />
+          <input id="market" className={inputCls("market")} placeholder={copy.marketPlaceholder} value={form.market} onChange={set("market")} />
           {errors.market && <p className="mt-1 text-xs text-red-500">{errors.market}</p>}
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="budget">
-            年度营销预算区间
+            {copy.budgetLabel}
           </label>
           <select id="budget" className={inputCls("budget")} value={form.budget} onChange={set("budget")}>
-            {BUDGETS.map((b) => (
+            {copy.budgets.map((b) => (
               <option key={b}>{b}</option>
             ))}
           </select>
         </div>
         <div className="md:col-span-2">
           <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="pain">
-            当前卡在哪一步 <span className="text-red-500">*</span>
+            {copy.painLabel} <span className="text-red-500">*</span>
           </label>
           <textarea
             id="pain"
             rows={4}
             className={inputCls("pain")}
-            placeholder="例如：有产能没询盘 / 展会获客成本太高 / 想转型线上不知道从何入手"
+            placeholder={copy.painPlaceholder}
             value={form.pain}
             onChange={set("pain")}
           />
@@ -142,10 +146,12 @@ export default function ContactForm() {
         ) : (
           <Send className="h-4 w-4" />
         )}
-        {intent === "resource" ? "申请领取资料包" : "免费获取出海方案"}
+        {intent === "resource" ? copy.submitResource : copy.submitPlan}
       </button>
       <p className="mt-3 text-center text-xs text-sub">
-        提交后由{BRAND.contactName}（{BRAND.contactPhone} 微信同号）跟进，信息仅用于业务联系。
+        {copy.privacyNotePrefix}
+        {brand.contactName}（{brand.contactPhone} {copy.wechatSuffix}）
+        {copy.privacyNoteSuffix}
       </p>
     </form>
   );
