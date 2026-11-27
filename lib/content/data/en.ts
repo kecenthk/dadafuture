@@ -17,6 +17,7 @@ export const BRAND = {
   contactTitle: "Project Lead",
   contactPhone: "137 2672 4687",
   wechatQr: "/brand/wechat-qr.png",
+  wecomUrl: "https://work.weixin.qq.com/ca/cawcde4cf746b97820",
   site: "www.dadafuture.com",
   icp: "DADAFUTURE × Yundian+ Co-Brand",
 };

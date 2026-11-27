@@ -65,6 +65,14 @@ export default async function ContactPage() {
                   {BRAND.contactName} · {BRAND.contactTitle}
                 </p>
               </div>
+              <a
+                href={BRAND.wecomUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-amber-400 transition hover:text-amber-500"
+              >
+                {copy.aside.wecomCta}
+              </a>
             </div>
             <div className="rounded-[14px] bg-white p-6 ring-1 ring-line">
               <h2 className="font-bold text-brand-900">{copy.aside.servicesTitle}</h2>

@@ -22,6 +22,7 @@ export const contactCopy: ContactCopy = {
     wechatNote: "When adding us on WeChat, mention “growth plan” for priority handling",
     qrAlt: "WeChat QR code · scan to connect",
     qrCaption: "Scan to add us on WeChat",
+    wecomCta: "Chat on WeCom →",
     servicesTitle: "What we can do for you",
     services: [
       "Growth plan: market research first, assessing product-market fit",

@@ -12,6 +12,7 @@ export const BRAND = {
   contactTitle: "项目负责",
   contactPhone: "137 2672 4687",
   wechatQr: "/brand/wechat-qr.png",
+  wecomUrl: "https://work.weixin.qq.com/ca/cawcde4cf746b97820",
   site: "www.dadafuture.com",
   icp: "搭搭未来 × 云店+ 联合品牌",
 };

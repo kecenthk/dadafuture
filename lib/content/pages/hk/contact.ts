@@ -22,6 +22,7 @@ export const contactCopy = {
     wechatNote: "添加微信請備註「出海方案」優先通過",
     qrAlt: "微信二維碼 · 掃碼聯繫",
     qrCaption: "微信掃碼添加",
+    wecomCta: "企業微信直達 →",
     servicesTitle: "我們能為您做什麼",
     services: [
       "出海方案：先做市場調研，評估產品與市場的契合度",

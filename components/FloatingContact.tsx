@@ -43,6 +43,14 @@ export default function FloatingContact({
               {brand.contactPhone}
             </p>
             <p className="mt-1 text-sub">{copy.tip}</p>
+            <a
+              href={brand.wecomUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-xs font-semibold text-brand-700 transition hover:text-amber-700"
+            >
+              {copy.wecom}
+            </a>
           </div>
         )}
         <button

@@ -64,6 +64,7 @@ export const commonCopy = {
     ctaLink: "免費獲取出海方案 →",
     qrAlt: "微信二維碼 · 掃碼聯繫",
     qrCaption: "微信掃碼",
+    wecom: "企業微信直達 →",
     copyright: "工廠出海 / 外貿獨立站 / SEO / GEO / 海外營銷",
     privacy: "隱私政策",
     terms: "服務條款",
@@ -77,6 +78,7 @@ export const commonCopy = {
     qrAlt: "微信二維碼",
     tip: "掃碼或微信同號，備註「出海方案」優先通過",
     wechat: "微信諮詢",
+    wecom: "企業微信直達",
     backToTop: "返回頂部",
   },
   cta: {

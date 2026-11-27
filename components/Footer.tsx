@@ -80,6 +80,14 @@ export default async function Footer({ locale }: { locale: Locale }) {
             <p className="mt-2 w-[104px] text-center text-[10px] leading-tight text-white/[0.55]">
               {c.qrCaption} · {BRAND.contactName}
             </p>
+            <a
+              href={BRAND.wecomUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 block w-[104px] text-center text-[10px] font-semibold leading-tight text-amber-400 transition hover:text-amber-500"
+            >
+              {c.wecom}
+            </a>
           </div>
           <p className="mt-5 text-xs leading-relaxed text-white/[0.5]">
             {c.company}

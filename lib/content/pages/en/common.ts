@@ -61,6 +61,7 @@ export const commonCopy = {
     ctaLink: "Get a Free Growth Plan →",
     qrAlt: "WeChat QR code · scan to connect",
     qrCaption: "Scan on WeChat",
+    wecom: "Chat on WeCom →",
     copyright: "Factory exports / Export websites / SEO / GEO / Overseas marketing",
     privacy: "Privacy Policy",
     terms: "Terms of Service",
@@ -75,6 +76,7 @@ export const commonCopy = {
     qrAlt: "WeChat QR code",
     tip: "Scan the code or add the same number on WeChat — mention “growth plan” for priority handling",
     wechat: "WeChat Enquiry",
+    wecom: "Chat on WeCom",
     backToTop: "Back to top",
   },
   cta: {
