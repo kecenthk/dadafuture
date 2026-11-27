@@ -115,6 +115,8 @@ export const commonCopy = {
   },
   site: {
     defaultTitle: "工厂出海超级营销合伙人｜AI 独立站 + SEO/GEO + 九大平台投放｜搭搭未来 DADAFUTURE",
+    defaultDescription:
+      "搭搭未来｜B2B 工厂出海超级营销合伙人：AI 独立站 + SEO/GEO + 九大平台投放 + 爆款共创，不碰货、不垫资、无贸易差价。第 3 期「出海 + AI」实战沙龙 12 月 17 日开讲，四位主讲现场拆解。",
     titleTemplate: "%s｜搭搭未来 DADAFUTURE",
     keywords: ["工厂出海", "B2B 外贸独立站", "海外营销", "品牌出海"],
     ogTitle: "搭搭未来｜B2B 工厂出海超级营销合伙人",

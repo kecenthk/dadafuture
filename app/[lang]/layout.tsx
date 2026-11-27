@@ -22,7 +22,6 @@ async function currentLocale(): Promise<Locale> {
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await currentLocale();
   const meta = LANGUAGES[locale];
-  const data = await getData();
   const site = (await getCommonCopy()).site;
 
   return {
@@ -31,14 +30,14 @@ export async function generateMetadata(): Promise<Metadata> {
       default: site.defaultTitle,
       template: site.titleTemplate,
     },
-    description: data.BRAND.promise,
+    description: site.defaultDescription,
     keywords: site.keywords,
     openGraph: {
       type: "website",
       locale: meta.ogLocale,
       siteName: site.siteName,
       title: site.ogTitle,
-      description: data.BRAND.promise,
+      description: site.defaultDescription,
     },
     icons: {
       icon: [
