@@ -30,7 +30,7 @@ async function main() {
   if (!urls.length) throw new Error("没有属于该站点的 URL");
 
   const res = await fetch(
-    `http://data.zz.baidu.com/urls?site=${encodeURIComponent(SITE)}&token=${encodeURIComponent(TOKEN)}`,
+    `http://data.zz.baidu.com/urls?site=${SITE}&token=${encodeURIComponent(TOKEN)}`,
     {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
