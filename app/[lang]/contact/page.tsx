@@ -20,6 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ContactPage() {
+  const locale = await currentLocale();
   const data = await getData();
   const pages = await getPages();
   const copy = pages.contact;

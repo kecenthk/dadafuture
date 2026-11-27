@@ -18,6 +18,8 @@ export const BRAND = {
   contactPhone: "137 2672 4687",
   wechatQr: "/brand/wechat-qr.png",
   wecomUrl: "https://work.weixin.qq.com/ca/cawcde4cf746b97820",
+  address: "No. 12 Liutiegang Road, Jiangxia, Huangshi Street, Baiyun District, Guangzhou, Guangdong, China",
+  addressEn: "No. 12 Liutiegang Road, Jiangxia, Huangshi Street, Baiyun District, Guangzhou, Guangdong, China",
   site: "www.dadafuture.com",
   icp: "DADAFUTURE × Yundian+ Co-Brand",
 };
