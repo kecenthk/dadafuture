@@ -13,6 +13,7 @@ export const commonCopy = {
     about: "关于我们",
     training: "培训赋能",
     news: "新闻动态",
+    contact: "联系我们",
     cta: "免费获取出海方案",
     solutionsOverview: "解决方案总览",
     coopHint: "五种合作方式 →",

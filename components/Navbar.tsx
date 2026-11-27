@@ -47,6 +47,7 @@ export default function Navbar({
     { href: "/about", label: copy.about },
     { href: "/training", label: copy.training },
     { href: "/news", label: copy.news },
+    { href: "/contact", label: copy.contact },
   ];
 
   const SOLUTION_MENU = copy.solutionMenu.map((s) => ({
@@ -87,7 +88,7 @@ export default function Navbar({
               <div key={item.href} className="group relative">
                 <Link
                   href={href(item.href)}
-                  className={`flex items-center gap-1 whitespace-nowrap border-b-2 px-3 py-2 text-sm font-medium transition ${
+                  className={`flex items-center gap-1 whitespace-nowrap border-b-2 px-2.5 py-2 text-sm font-medium transition xl:px-3 ${
                     isActive(item.href)
                       ? "border-brand-600 text-brand-600"
                       : "border-transparent text-ink hover:border-brand-200 hover:text-brand-600"
@@ -131,7 +132,7 @@ export default function Navbar({
               <Link
                 key={item.href}
                 href={href(item.href)}
-                className={`whitespace-nowrap border-b-2 px-3 py-2 text-sm font-medium transition ${
+                className={`whitespace-nowrap border-b-2 px-2.5 py-2 text-sm font-medium transition xl:px-3 ${
                   isActive(item.href)
                     ? "border-brand-600 text-brand-600"
                     : "border-transparent text-ink hover:border-brand-200 hover:text-brand-600"

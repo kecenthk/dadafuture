@@ -12,6 +12,7 @@ export const commonCopy = {
     about: "About Us",
     training: "Training",
     news: "News",
+    contact: "Contact",
     cta: "Get a Free Growth Plan",
     solutionsOverview: "Solutions Overview",
     coopHint: "Five Ways to Work Together →",

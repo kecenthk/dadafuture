@@ -15,6 +15,7 @@ export const commonCopy = {
     about: "關於我們",
     training: "培訓賦能",
     news: "新聞動態",
+    contact: "聯絡我們",
     cta: "免費獲取出海方案",
     solutionsOverview: "解決方案總覽",
     coopHint: "五種合作方式 →",
