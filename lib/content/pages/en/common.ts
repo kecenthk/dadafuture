@@ -8,6 +8,7 @@ export const commonCopy = {
     solutions: "Solutions",
     services: "Services",
     cases: "Case Studies",
+    research: "Market Research",
     about: "About Us",
     training: "Training",
     news: "News",

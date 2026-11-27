@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手工床垫工厂出海调研｜搭搭未来</title>
+<style>
+:root{
+  --bg:#F5F3EC; --bg2:#FFFFFF; --ink:#12231F; --muted:#5F6B66;
+  --rule:#DDD8CB; --accent:#0E7C6B; --accent2:#C9873A; --soft:#EDF2EE;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+  font-size:14.5px; line-height:1.75; letter-spacing:.01em;
+}
+a{color:var(--accent); text-decoration:none}
+.wrap{max-width:1100px; margin:0 auto; padding:0 26px}
+.mono{font-family:ui-monospace,"SFMono-Regular",Consolas,monospace; letter-spacing:.08em; text-transform:uppercase}
+.serif{font-family:"Instrument Serif",Georgia,"Songti SC",serif}
+
+/* hero */
+.hero{border-bottom:1px solid var(--rule); background:
+  radial-gradient(900px 340px at 84% -10%, rgba(14,124,107,.10), transparent 62%),
+  radial-gradient(640px 280px at 6% 110%, rgba(201,135,58,.10), transparent 60%);}
+.hero-inner{padding:34px 0 32px}
+.hero-top{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap}
+.logo{height:42px; width:auto; display:block}
+.hero-kicker{font-size:10.5px; color:var(--muted)}
+.hero h1{margin:22px 0 12px; font-size:clamp(26px,3.6vw,40px); line-height:1.2; font-weight:800; letter-spacing:-.02em; max-width:860px}
+.hero h1 em{font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-weight:400; color:var(--accent)}
+.hero-sub{max-width:800px; color:var(--muted); font-size:14.5px; line-height:1.8; margin:0}
+.hero-meta{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; margin-top:26px; border-top:1px solid var(--rule)}
+.hero-meta div{padding:14px 16px 0 0}
+.hero-meta dt{font-size:10px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase}
+.hero-meta dd{margin:3px 0 0; font-size:12.5px; font-weight:600}
+
+/* toolbar */
+.toolbar{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:14px 0 0}
+.progress{flex:1; min-width:200px; height:6px; background:var(--rule); position:relative; overflow:hidden}
+.progress i{display:block; height:100%; width:0; background:var(--accent); transition:width .25s ease}
+.progress-txt{font-size:11.5px; color:var(--muted); white-space:nowrap}
+.btn{border:1px solid var(--ink); background:transparent; color:var(--ink); font:inherit; font-size:11.5px; padding:6px 14px; cursor:pointer; letter-spacing:.04em}
+.btn:hover{background:var(--ink); color:#fff}
+.btn.pri{background:var(--accent); border-color:var(--accent); color:#fff}
+.btn.pri:hover{background:#0B6456; border-color:#0B6456}
+
+/* sections */
+section{padding:34px 0 6px; border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:6px}
+.sec-num{font-family:ui-monospace,Consolas,monospace; font-size:11.5px; color:var(--accent); letter-spacing:.1em}
+.sec-head h2{margin:0; font-size:19px; letter-spacing:-.01em}
+.sec-head .tag{margin-left:auto; font-size:10px; color:var(--muted); letter-spacing:.1em}
+.sec-desc{color:var(--muted); font-size:13px; margin:4px 0 16px; max-width:860px}
+h3{font-size:14.5px; margin:22px 0 10px; letter-spacing:.01em}
+h3 .n{font-family:ui-monospace,Consolas,monospace; font-size:11px; color:var(--accent); margin-right:7px}
+p{margin:0 0 12px}
+
+/* tables */
+.table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--rule); background:var(--bg2)}
+table{width:100%; border-collapse:collapse; font-size:12.5px; min-width:600px}
+th,td{text-align:left; padding:8px 10px; border-bottom:1px solid var(--rule); vertical-align:top; line-height:1.6}
+th{background:var(--soft); font-size:11px; letter-spacing:.04em; font-weight:700; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.ck,th.ck{width:34px; text-align:center; padding-left:4px; padding-right:4px}
+td.k{width:190px; font-weight:600; background:rgba(237,242,238,.45)}
+td.pri{width:64px; white-space:nowrap; font-size:11px}
+td.pri b{color:var(--accent); font-family:ui-monospace,Consolas,monospace}
+td.pri i{color:var(--accent2); font-family:ui-monospace,Consolas,monospace; font-style:normal}
+td.pri em{color:var(--muted); font-family:ui-monospace,Consolas,monospace; font-style:normal}
+
+/* checkbox */
+.cb{display:inline-block; width:14px; height:14px; border:1.5px solid var(--muted); vertical-align:-2px; cursor:pointer; position:relative}
+.cb.on{background:var(--accent); border-color:var(--accent)}
+.cb.on::after{content:""; position:absolute; left:3.5px; top:.5px; width:4px; height:8px; border:solid #fff; border-width:0 1.8px 1.8px 0; transform:rotate(42deg)}
+
+/* inputs */
+.fi{width:100%; border:0; border-bottom:1px dashed var(--rule); background:transparent; font:inherit; font-size:12.5px; padding:4px 2px; color:var(--ink); border-radius:0}
+.fi:focus{outline:0; border-bottom-color:var(--accent); background:rgba(14,124,107,.04)}
+textarea.fi{border:1px solid var(--rule); min-height:66px; padding:8px; resize:vertical; line-height:1.65}
+::placeholder{color:#A8B0AA}
+
+/* cards */
+.grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.mod{background:var(--bg2); border:1px solid var(--rule); border-top:3px solid var(--accent); padding:14px 14px 12px}
+.mod h4{margin:0 0 6px; font-size:13px; display:flex; align-items:flex-start; gap:8px}
+.mod p{margin:0; font-size:12px; color:var(--muted); line-height:1.65}
+.mod .deliv{display:block; margin-top:8px; padding-top:8px; border-top:1px dashed var(--rule); font-size:11px; color:var(--muted)}
+
+.note{border-left:3px solid var(--accent); background:rgba(14,124,107,.045); padding:12px 16px; font-size:12.5px; line-height:1.7; margin:14px 0}
+.note.warn{border-left-color:var(--accent2); background:rgba(201,135,58,.05)}
+
+footer{margin-top:26px; padding:26px 0 48px; border-top:1px solid var(--ink); font-size:11.5px; color:var(--muted)}
+.foot-top{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:12px}
+.foot-logo{height:40px; width:auto; display:block}
+.foot-contact{font-size:12px; color:var(--ink); line-height:1.9}
+
+@media (max-width:980px){
+  .grid3{grid-template-columns:minmax(0,1fr)}
+  .hero-meta{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  body{font-size:14px}
+  .wrap{padding:0 15px}
+  .hero-inner{padding:24px 0 24px}
+  .logo{height:34px}
+  .foot-logo{height:34px}
+  .hero h1{font-size:25px}
+}
+
+@media print{
+  body{background:#fff; font-size:11pt}
+  .hero{background:#fff}
+  .toolbar{display:none}
+  section{page-break-inside:auto; padding:16px 0 4px}
+  .table-wrap{overflow:visible; border-color:#999}
+  table{min-width:0; font-size:9pt}
+  .mod{page-break-inside:avoid}
+  .fi{border-bottom:1px solid #999}
+  footer{page-break-before:avoid}
+  a{color:#12231F}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <img class="logo" src="data:image/png;base64,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" alt="搭搭未来 · DADAFUTURE" width="42" height="42">
+      <div class="hero-kicker mono">DADAFUTURE · 出海调研准备</div>
+    </div>
+    <h1>手工床垫 · <em>工厂出海调研表</em></h1>
+    <p class="hero-sub">这份表不是问卷，是我们出方案前的资料清单。填完它，我们才能交付一份有真实数据的出海方案，而不是一份读起来很顺、落地却很空的 PPT。资料不全没关系——先把能填的填掉，缺口我们逐项跟进。</p>
+    <dl class="hero-meta">
+      <div><dt>预计填写</dt><dd>60–90 分钟</dd></div>
+      <div><dt>建议填写人</dt><dd>外贸 / 品牌负责人（可协同工厂端）</dd></div>
+      <div><dt>提交后</dt><dd>2 个工作日内出初判与方案框架</dd></div>
+    </dl>
+    <div class="toolbar">
+      <span class="progress"><i id="bar"></i></span>
+      <span class="progress-txt">已勾选 <b id="cnt">0</b> / <b id="total">0</b> 项</span>
+      <button class="btn" onclick="window.print()">打印 / 导出 PDF</button>
+      <button class="btn pri" onclick="saveNet()">保存填写结果</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- 00 -->
+<section>
+  <div class="sec-head"><span class="sec-num">00</span><h2>企业与工厂基本信息</h2><span class="tag mono">必填</span></div>
+  <p class="sec-desc">用于核对主体资质与产能口径。出口主体、商标持有人、工厂主体不一致时，请分别注明。</p>
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr><td class="k">企业全称</td><td><input class="fi" placeholder="营业执照上的完整名称"></td></tr>
+        <tr><td class="k">品牌名 / 商标</td><td><input class="fi" placeholder="如 XXX Handmade Mattress；是否已注册海外商标"></td></tr>
+        <tr><td class="k">工厂地址</td><td><input class="fi" placeholder="省市区（填到区域即可）"></td></tr>
+        <tr><td class="k">成立年份 / 注册资本</td><td><input class="fi" placeholder="如 2022 年 / 500 万元"></td></tr>
+        <tr><td class="k">厂房面积 / 员工人数</td><td><input class="fi" placeholder="如 8,000 ㎡ / 120 人（外贸团队 3 人）"></td></tr>
+        <tr><td class="k">年产能</td><td><input class="fi" placeholder="如 月产 15,000 张；平铺 __% / 卷包 __%"></td></tr>
+        <tr><td class="k">现有出口经验</td><td><input class="fi" placeholder="出口国家、年出口额、主要客户类型、是否做过 OEM/ODM"></td></tr>
+        <tr><td class="k">对接人与联系方式</td><td><input class="fi" placeholder="姓名 / 职务 / 手机 / 邮箱"></td></tr>
+        <tr><td class="k">填写日期</td><td><input class="fi" placeholder="2026-__-__"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">保密说明：本表信息仅用于本项目评估与方案撰写，不向第三方披露；如需签署 NDA，请在提交时告知，我们可先签后填。</div>
+</section>
+
+<!-- 01 -->
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>主打目标市场</h2><span class="tag mono">必填 · 决定方案主线</span></div>
+  <p class="sec-desc">不用替我们做判断，只要把「想去哪、为什么、现在在哪」写清楚。我们会基于全球八区域打分，给出优先级与进入顺序，再与你的判断对齐。</p>
+
+  <h3><span class="n">1.1</span>目标市场优先级</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th class="pri">优先级</th><th>目标区域</th><th>具体国家（最多 3 个）</th><th>目标客户类型</th><th>为什么选它</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="pri"><b>P0</b></td><td><input class="fi" placeholder="最想先打的市场"></td><td><input class="fi"></td><td><input class="fi" placeholder="买手店 / 酒店工程 / 分销商 / 品牌代工"></td><td><input class="fi"></td></tr>
+        <tr><td class="pri"><i>P1</i></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="pri"><em>P2</i></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td colspan="5" style="background:rgba(237,242,238,.35)"><b>暂不考虑</b> <span style="color:var(--muted);font-size:11.5px">（写出排除的市场及原因，避免方案走偏）</span><br><input class="fi" placeholder="如北美：关税与 UFLPA 风险高，暂缓"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="n">1.2</span>市场判断依据（勾选已掌握的信息）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="ck"></th><th>调研项</th><th>现状 / 补充说明</th></tr></thead>
+      <tbody>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>已掌握现有询盘的国家分布</td><td><input class="fi" placeholder="如 拉美 60% / 中东 20% / 欧洲 20%"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>了解目标国的竞品零售价带</td><td><input class="fi" placeholder="如 英国手工床垫 1,500–6,000 英镑"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>了解目标国的准入与认证门槛</td><td><input class="fi" placeholder="如 英国 FR 阻燃 / 欧盟 GPSR / 美国 CFR 1633"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>了解目标国的渠道结构</td><td><input class="fi" placeholder="如 英国以独立床垫零售商 + 百货为主"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>已有当地客户或代理线索</td><td><input class="fi" placeholder="有 / 无，若有请列 1–3 个"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 02 -->
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>主打产品与详细规格参数</h2><span class="tag mono">必填 · 决定内容与素材</span></div>
+  <p class="sec-desc">请按「准备主推」的顺序填 1–3 条产品线。参数越具体，我们的页面文案与投放定向就越准；参数缺失的部分我们会标出来单独补。</p>
+
+  <h3><span class="n">2.1</span>主推产品（建议 3 款以内）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>产品线 / 系列</th><th>定位</th><th>核心材质</th><th>尺寸（cm）</th><th>厚度</th><th>弹簧结构</th><th>FOB 价（USD）</th><th>MOQ</th><th>交期</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><input class="fi"></td><td><input class="fi" placeholder="高端手工 / 中端工程"></td><td><input class="fi" placeholder="马尾毛 / 羊毛 / 乳胶…"></td><td><input class="fi" placeholder="180×200"></td><td><input class="fi" placeholder="28cm"></td><td><input class="fi" placeholder="独立袋装 / 双层"></td><td><input class="fi" placeholder="300–800"></td><td><input class="fi" placeholder="20 张"></td><td><input class="fi" placeholder="25 天"></td></tr>
+        <tr><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="n">2.2</span>可定制项（勾选可提供的范围）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="ck"></th><th>定制项</th><th>可选范围 / 加价说明</th></tr></thead>
+      <tbody>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>尺寸定制</td><td><input class="fi" placeholder="如 单/双/king/queen，非标加价 __%"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>硬度定制</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>面料 / 花色定制</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>LOGO / 洗标 / 吊牌</td><td><input class="fi" placeholder="是否可做客户品牌 OEM"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>包装定制</td><td><input class="fi" placeholder="彩盒 / 压缩卷包 / 木架"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>说明书语言</td><td><input class="fi" placeholder="英 / 德 / 法 / 西 / 阿"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>卷包（roll-pack）出口</td><td><input class="fi" placeholder="可卷包尺寸上限、压缩后体积与回弹时间"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="n">2.3</span>产品资料清单（请随表提供）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="ck"></th><th>资料</th><th>说明 / 备注</th></tr></thead>
+      <tbody>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>产品白底图</td><td><input class="fi" placeholder="每款 ≥3 张，长边 ≥2000px"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>场景图 / 使用图</td><td><input class="fi" placeholder="卧室、展厅、酒店客房"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>结构与材料剖面图</td><td><input class="fi" placeholder="分层结构、弹簧示意"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>材料成分表</td><td><input class="fi" placeholder="各层材质与克重 / 密度"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>检测报告</td><td><input class="fi" placeholder="阻燃 / 甲醛 / 有害物质 / 抗菌"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>包装尺寸、单件毛重与装箱量</td><td><input class="fi" placeholder="用于测算海运成本"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>HS 编码与 FOB 报价单</td><td><input class="fi" placeholder="按型号列明"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td>现有画册 / 目录 PDF</td><td><input class="fi" placeholder="中英文均可"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 03 -->
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>海外社媒与数字资产现状</h2><span class="tag mono">必填 · 决定起点</span></div>
+  <p class="sec-desc">账号不用「做得好」才填，做得差更要填——现有粉丝、内容量、询盘量决定了第一年是「从零起号」还是「盘活存量」。</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>渠道</th><th>账号 / 链接</th><th>粉丝 / 关注</th><th>更新频率</th><th>内容语言</th><th>近 3 月询盘</th><th>是否投过广告</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">英文官网</td><td><input class="fi" placeholder="无 / 域名"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">TikTok</td><td><input class="fi" placeholder="@yourbrand.handmade"></td><td><input class="fi" placeholder="粉丝 / 点赞数"></td><td><input class="fi"></td><td><input class="fi" placeholder="西语 / 英语"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">Facebook</td><td><input class="fi" placeholder="主页链接"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">Instagram</td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">YouTube</td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">LinkedIn</td><td><input class="fi" placeholder="公司页 / 个人号"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">阿里国际站</td><td><input class="fi" placeholder="店铺链接 / 星级"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">中国制造网 / 其他 B2B 平台</td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+        <tr><td class="k">Google 商家 / 地图</td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td><td><input class="fi"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3><span class="n">3.1</span>账号归属与权限</h3>
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">账号是否为企业主体持有（可开 BM / 广告账户）</td><td><input class="fi" placeholder="是 / 否；若为个人号请说明"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">能否提供后台数据（粉丝增长、播放、询盘来源）</td><td><input class="fi" placeholder="可提供 / 需授权 / 无法提供"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">是否已有可用的素材库</td><td><input class="fi" placeholder="视频时长、拍摄时间、是否有 4K 原片"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 04 -->
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>当前遇到的问题</h2><span class="tag mono">多选 · 优先级排序</span></div>
+  <p class="sec-desc">勾选真实卡点，并在右侧标一个优先级（1 = 最急）。我们会按「先解决能立刻放大的那一个」来排方案，而不是所有问题一起上。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="ck"></th><th class="pri">优先级</th><th>问题域</th><th>具体表现</th></tr></thead>
+      <tbody>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder="1"></td><td class="k">市场调研</td><td>不知道先做哪个国家 / 不清楚当地价格带与认证门槛 / 没有可靠的品类数据来源</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder="2"></td><td class="k">获客渠道单一</td><td>只靠展会或阿里国际站 / 没有主动开发 / 社媒长期不动 / 没有英文官网承接</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder=""></td><td class="k">获客成本高</td><td>单条询盘成本高 / 广告不会投或投了没效果 / 没有转化跟踪与归因</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder=""></td><td class="k">爆款打造</td><td>没有主推产品 / 产品同质化 / 缺视觉与视频素材 / 卖点讲不清</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder=""></td><td class="k">业务转化</td><td>询盘多成单少 / 报价后失联 / 没有跟进 SOP 与 CRM / 客户分级缺失</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder=""></td><td class="k">品牌与信任</td><td>海外搜不到品牌 / 无英文官网 / 缺认证与可公开案例 / 被当成低价代工厂</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder=""></td><td class="k">供应链与交付</td><td>小单不接 / 交期不稳 / 包装不适配海运 / 卷包回弹不达标</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder=""></td><td class="k">团队与预算</td><td>没有专职外贸与运营 / 预算不确定 / 决策链长 / 内部对出海目标不一致</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="pri"><input class="fi" style="text-align:center" placeholder=""></td><td class="k">合规与知识产权</td><td>商标未注册 / 认证缺失 / 担心被抄袭 / 不熟悉目的国标签与责任要求</td></tr>
+        <tr><td colspan="4"><b>其他问题</b>（请补充）<br><textarea class="fi" placeholder="写具体场景比写结论有用，例如：去年投过 2 万美金 Facebook，来了 30 条询盘，成交 0 单。"></textarea></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 05 -->
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>希望合作的搭搭未来服务模块</h2><span class="tag mono">多选</span></div>
+  <p class="sec-desc">勾选本次希望推进的模块。不确定也没关系——我们会基于前面的信息给出建议组合，再由你确认。</p>
+  <div class="grid3">
+    <div class="mod">
+      <h4><span class="cb" data-cb></span>01 品牌官网与搜索资产</h4>
+      <p>英文独立站定制开发、产品与工艺内容、技术 SEO、转化埋点。</p>
+      <span class="deliv">交付：可上线的英文站点 + 源码与数据库 + SEO 基线</span>
+    </div>
+    <div class="mod">
+      <h4><span class="cb" data-cb></span>02 GEO 优化（AI 搜索可见性）</h4>
+      <p>让 ChatGPT、Gemini、Perplexity 与 Google AI Overview 在回答「手工床垫供应商」时能引用你。</p>
+      <span class="deliv">交付：GEO 语料库 + llms.txt + Schema + 引用监测月报</span>
+    </div>
+    <div class="mod">
+      <h4><span class="cb" data-cb></span>03 Google Ads 投放</h4>
+      <p>承接高意图搜索词，按国家与语言分账户，转化跟踪打通。</p>
+      <span class="deliv">交付：账户结构 + 关键词库 + 周度优化 + 月度报告</span>
+    </div>
+    <div class="mod">
+      <h4><span class="cb" data-cb></span>04 社媒投放与内容运营</h4>
+      <p>Facebook / Instagram 三阶段战役、内容矩阵、素材排期与数据复盘。</p>
+      <span class="deliv">交付：账户与 Pixel + 月度内容日历 + 素材包 + 复盘</span>
+    </div>
+    <div class="mod">
+      <h4><span class="cb" data-cb></span>05 LinkedIn 主动开发</h4>
+      <p>面向酒店集团采购、工程承包商与买手店的名单采集与私信触达。</p>
+      <span class="deliv">交付：客户名单 + 话术库 + 周度跟进表 + 已约会议</span>
+    </div>
+    <div class="mod">
+      <h4><span class="cb" data-cb></span>06 视觉与视频素材</h4>
+      <p>上门实拍厂区、工序与材料特写，产出横竖双版本素材。</p>
+      <span class="deliv">交付：成片素材包 + 原始文件 + 多语言字幕版</span>
+    </div>
+  </div>
+
+  <h3><span class="n">5.1</span>可增配能力（可选）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="ck"></th><th>能力</th><th>适用场景</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">Google Ads 加投</td><td>搜索意图明确的采购词</td><td>可按新增国家或产品线追加账户与预算</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">B2B 业务转化管理</td><td>询盘进入后的跟进体系</td><td>线索分级、跟进 SOP、CRM 字段与看板</td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">出海 + AI 智能体</td><td>多语言客服、询盘初筛</td><td>基于产品资料的自动答疑与线索分级</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 06 -->
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>预算、节奏与配合方式</h2><span class="tag mono">必填 · 决定排期</span></div>
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr><td class="k">年度出海预算区间</td><td><input class="fi" placeholder="如 30–50 万 / 50–100 万（含服务费，不含广告费）"></td></tr>
+        <tr><td class="k">首年广告预算</td><td><input class="fi" placeholder="如 每月 1 万美金，客户直充平台"></td></tr>
+        <tr><td class="k">期望启动时间</td><td><input class="fi" placeholder="如 2026 年 12 月"></td></tr>
+        <tr><td class="k">期望首单时间</td><td><input class="fi" placeholder="如 2027 年 Q2"></td></tr>
+        <tr><td class="k">可安排拍摄的档期</td><td><input class="fi" placeholder="厂区实拍需要 2–3 天，请给出可配合的月份"></td></tr>
+        <tr><td class="k">决策流程</td><td><input class="fi" placeholder="谁拍板、需要几轮评审、是否有预算审批周期"></td></tr>
+        <tr><td class="k">内部可投入的人力</td><td><input class="fi" placeholder="如 1 名外贸 + 1 名设计，每周可投入 10 小时"></td></tr>
+        <tr><td class="k">需要我方现场支持</td><td><input class="fi" placeholder="如 展会、客户拜访、工厂开放日"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 -->
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>资料交付清单</h2><span class="tag mono">可分批提交</span></div>
+  <p class="sec-desc">以下为出方案与建站所需的全部资料。打勾表示已备好，未备的写预计提供时间，我们按缺口排优先级，不会因为缺一两项就停摆。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="ck"></th><th>资料</th><th>用途</th><th>状态 / 预计提供时间</th></tr></thead>
+      <tbody>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">营业执照</td><td>主体核验、站点资质页</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">商标注册证（含海外）</td><td>品牌页、平台备案</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">产品检测报告</td><td>合规页、详情页信任背书</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">体系与行业认证</td><td>ISO / BSCI / OEKO-TEX / CertiPUR 等</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">专利与非遗证书</td><td>差异化内容、防抄袭说明</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">工厂与产线照片 / 视频</td><td>关于我们、工厂实力页</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">产品白底图与场景图</td><td>产品页、广告素材</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">现有画册 / 目录</td><td>内容改写底稿</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">现有官网 / 店铺链接</td><td>资产盘点与迁移</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">竞品链接（3–5 个）</td><td>定位与内容对标</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">可公开的客户案例</td><td>案例页、信任背书</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">包装规格与装箱单</td><td>物流测算、尺寸换算</td><td><input class="fi"></td></tr>
+        <tr class="cb-row"><td class="ck"><span class="cb"></span></td><td class="k">HS 编码与 FOB 报价单</td><td>关税测算、报价页</td><td><input class="fi"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn">提示：产品检测报告与认证是海外客户最常索要的两份文件。如果目前缺失，请在表中注明，我们会把「补认证」写进方案的第一阶段，而不是等客户追问时才补。</div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <img class="foot-logo" src="data:image/png;base64,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" alt="搭搭未来 · DADAFUTURE" width="40" height="40">
+    <div class="foot-contact">
+      <b>搭搭未来 · DADAFUTURE</b><br>
+      官网：www.dadafuture.com
+    </div>
+  </div>
+  <p style="margin:0">本表为出海方案的前置调研清单，填写内容仅用于本项目评估。可整份填写，也可只填当前最有把握的部分——剩余缺口我们在首次沟通中逐项补齐。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.cb'));
+  var bar = document.getElementById('bar');
+  var cnt = document.getElementById('cnt');
+  document.getElementById('total').textContent = boxes.length;
+
+  function refresh(){
+    var on = boxes.filter(function(b){return b.classList.contains('on');}).length;
+    cnt.textContent = on;
+    bar.style.width = boxes.length ? (on / boxes.length * 100) + '%' : '0%';
+  }
+  boxes.forEach(function(b){
+    b.addEventListener('click', function(e){
+      e.stopPropagation();
+      b.classList.toggle('on');
+      refresh();
+    });
+  });
+  Array.prototype.slice.call(document.querySelectorAll('tr.cb-row')).forEach(function(tr){
+    tr.addEventListener('click', function(e){
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      var cb = tr.querySelector('.cb');
+      if (cb) { cb.classList.toggle('on'); refresh(); }
+    });
+  });
+  refresh();
+
+  window.saveNet = function(){
+    var data = {};
+    Array.prototype.slice.call(document.querySelectorAll('.fi')).forEach(function(el, i){
+      if (el.value) data['f' + i] = el.value;
+    });
+    data['checks'] = boxes.map(function(b,i){ return b.classList.contains('on') ? i : null; })
+      .filter(function(v){ return v !== null; });
+    var blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '调研表填写结果.json';
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 3000);
+  };
+})();
+</script>
+</body>
+</html>

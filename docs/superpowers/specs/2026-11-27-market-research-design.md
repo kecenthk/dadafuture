@@ -20,16 +20,16 @@
 - 不改造报告内部样式、图表与交互，报告保持独立单文件原貌。
 - 不做站内 iframe 阅读页（后续如需，可基于本设计的元数据扩展 `/{locale}/research/[slug]`）。
 - 不做后台 CMS 与上传界面（新增报告走代码提交）。
-- 不做英文/繁体报告正文（栏目仅中文；繁中、英文访问统一跳转 `/zh/research`）。
+- 不做英文/繁体报告正文（栏目仅中文；繁中、英文访问统一跳转 `/research`）。
 - 不做报告点赞、下载统计、权限控制。
 
 ## 3. 信息架构与路由
 
 | 路由 | 说明 |
 | --- | --- |
-| `/zh/research` | 聚合索引页：搜索 + 筛选 + 卡片列表 |
+| `/research` | 聚合索引页：搜索 + 筛选 + 卡片列表 |
 | `/research/<slug>.html` | 单份报告静态文件（`public/research/`），新标签打开 |
-| `/zh-HK/research`、`/en/research` | 服务端重定向到 `/zh/research` |
+| `/zh-HK/research`、`/en/research` | 服务端重定向到 `/research` |
 
 导航：中文主导航在「案例」与「关于」之间插入「市场调研」；繁中/英文导航不插入该项。页脚「快速链接」区同步增加。
 
@@ -116,9 +116,9 @@ Select-String -Path public/research/<slug>.html -Pattern 'WindWing|百宁|威臣
 
 ## 8. SEO 与分发
 
-- `/zh/research` 输出独立 metadata：title「市场调研｜工厂出海与品类增长研究报告｜搭搭未来」、description 覆盖类型与首期规模。
+- `/research` 输出独立 metadata：title「市场调研｜工厂出海与品类增长研究报告｜搭搭未来」、description 覆盖类型与首期规模。
 - 页面内输出 `ItemList` JSON-LD，每项含标题、日期、URL。
-- `sitemap.ts` 增加 `/zh/research` 与 8 个 `/research/<slug>.html`。
+- `sitemap.ts` 增加 `/research` 与 8 个 `/research/<slug>.html`。
 - `public/llms.txt` 增加「市场调研」小节，列出栏目 URL 与报告清单。
 - 客户分享：`https://<域名>/zh/research` 为聚合入口，单份报告可直发 `/research/<slug>.html`。
 
@@ -144,7 +144,7 @@ lib/content/pages/zh/{common,research}.ts   文案（繁中/英文 common 增加
 
 ## 11. 验收标准
 
-1. `/zh/research` 返回 200，展示 8 份报告；`/en/research`、`/zh-HK/research` 301/308 到 `/zh/research`。
+1. `/research` 返回 200，展示 8 份报告；`/en/research`、`/zh-HK/research` 301/308 到 `/research`。
 2. 搜索「床垫」「北美」「增长方案」均返回正确子集；清空条件恢复 8 份。
 3. 类型、品类、区域 chips 可组合筛选，计数准确，空结果有提示与重置。
 4. 8 个 `/research/<slug>.html` 全部 200，打开后无客户名、官网、电话、微信、二维码、地址。

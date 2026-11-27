@@ -9,6 +9,7 @@ export const commonCopy = {
     solutions: "解决方案",
     services: "服务产品",
     cases: "案例中心",
+    research: "市场调研",
     about: "关于我们",
     training: "培训赋能",
     news: "新闻动态",

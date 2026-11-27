@@ -11,6 +11,7 @@ export const commonCopy = {
     solutions: "解決方案",
     services: "服務產品",
     cases: "案例中心",
+    research: "市場調研",
     about: "關於我們",
     training: "培訓賦能",
     news: "新聞動態",

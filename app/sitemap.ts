@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SERVICES, SOLUTIONS } from "@/lib/data";
 import { LOCALES, localizePath } from "@/lib/i18n/config";
+import { REPORTS, reportHref } from "@/lib/research/reports";
 
 const BASE = "https://www.dadafuture.com";
 const LAST_MODIFIED = "2026-11-14";
@@ -51,11 +52,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return entries.flatMap((entry) => [
-    withLanguages(entry),
-    ...LOCALES.filter((locale) => locale !== "zh").map((locale) => ({
-      ...withLanguages(entry),
-      url: `${BASE}${localizePath(entry.path, locale)}`,
+  return [
+    ...entries.flatMap((entry) => [
+      withLanguages(entry),
+      ...LOCALES.filter((locale) => locale !== "zh").map((locale) => ({
+        ...withLanguages(entry),
+        url: `${BASE}${localizePath(entry.path, locale)}`,
+      })),
+    ]),
+    {
+      url: `${BASE}/research`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...REPORTS.map((r) => ({
+      url: `${BASE}${reportHref(r.slug)}`,
+      lastModified: r.publishedAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
-  ]);
+  ];
 }

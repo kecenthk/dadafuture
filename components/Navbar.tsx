@@ -43,6 +43,7 @@ export default function Navbar({
     { href: "/solutions", label: copy.solutions },
     { href: "/services", label: copy.services },
     { href: "/cases", label: copy.cases },
+    ...(locale === "zh" ? [{ href: "/research", label: copy.research }] : []),
     { href: "/about", label: copy.about },
     { href: "/training", label: copy.training },
     { href: "/news", label: copy.news },

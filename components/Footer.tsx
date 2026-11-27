@@ -103,6 +103,11 @@ export default async function Footer({ locale }: { locale: Locale }) {
         <p className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           <Link href={href("/privacy")} className="transition hover:text-amber-400">{c.privacy}</Link>
           <Link href={href("/terms")} className="transition hover:text-amber-400">{c.terms}</Link>
+          {locale === "zh" && (
+            <Link href={href("/research")} className="transition hover:text-amber-400">
+              {copy.nav.research}
+            </Link>
+          )}
           <span>{c.phoneLabel}：{BRAND.contactPhone}</span>
           <a
             href="https://beian.miit.gov.cn/"
