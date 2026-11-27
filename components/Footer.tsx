@@ -96,6 +96,14 @@ export default async function Footer({ locale }: { locale: Locale }) {
           <Link href={href("/privacy")} className="transition hover:text-amber-400">{c.privacy}</Link>
           <Link href={href("/terms")} className="transition hover:text-amber-400">{c.terms}</Link>
           <span>{c.phoneLabel}：{BRAND.contactPhone}</span>
+          <a
+            href="https://beian.miit.gov.cn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition hover:text-amber-400"
+          >
+            粤ICP备2026191728号
+          </a>
         </p>
       </div>
     </footer>
