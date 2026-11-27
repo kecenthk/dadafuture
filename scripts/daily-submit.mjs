@@ -49,14 +49,14 @@ function changedSince(recordedAt, lastmod) {
 async function pushBaidu(state, urls) {
   if (!TOKEN) {
     log("跳过百度：未配置 BAIDU_TOKEN");
-    return;
+    return { status: 0, text: "未配置 token", sent: 0 };
   }
   const pending = urls
     .filter((u) => changedSince(state.baidu[u.loc], u.lastmod))
     .slice(0, DAILY_LIMIT);
   if (!pending.length) {
     log("百度：没有待推送 URL");
-    return;
+    return { status: 0, text: "无待推送", sent: 0 };
   }
   const res = await fetch(
     `http://data.zz.baidu.com/urls?site=${SITE}&token=${encodeURIComponent(TOKEN)}`,
@@ -68,13 +68,14 @@ async function pushBaidu(state, urls) {
   );
   const text = await res.text();
   log(`百度推送 ${res.status}: ${text}`);
-  if (!res.ok) return;
+  if (!res.ok) return { status: res.status, text, sent: 0 };
 
   const result = JSON.parse(text);
   const failed = new Set(result.not_same_site || []);
   for (const u of pending) {
     if (!failed.has(u.loc)) state.baidu[u.loc] = now();
   }
+  return { status: res.status, text, sent: result.success ?? pending.length - failed.size };
 }
 
 async function pushIndexNow(state, urls) {
@@ -83,7 +84,7 @@ async function pushIndexNow(state, urls) {
     .map((u) => u.loc);
   if (!pending.length) {
     log("IndexNow：没有新增或更新的 URL");
-    return;
+    return { status: 0, count: 0 };
   }
   const res = await fetch("https://api.indexnow.org/indexnow", {
     method: "POST",
@@ -97,19 +98,56 @@ async function pushIndexNow(state, urls) {
   });
   log(`IndexNow ${res.status} ${res.statusText} — ${pending.length} urls`);
   if (res.ok) for (const loc of pending) state.indexnow[loc] = now();
+  return { status: res.status, count: pending.length, ok: res.ok };
+}
+
+async function notify(content) {
+  const hook = process.env.WECOM_WEBHOOK;
+  if (!hook) {
+    log("跳过企业微信通知：未配置 WECOM_WEBHOOK");
+    return;
+  }
+  try {
+    const res = await fetch(hook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ msgtype: "markdown", markdown: { content } }),
+    });
+    log(`企业微信通知 ${res.status}: ${await res.text()}`);
+  } catch (err) {
+    log("企业微信通知失败:", err.message);
+  }
 }
 
 async function main() {
   const state = readState();
   const urls = await fetchSitemap();
   log(`sitemap: ${urls.length} urls`);
-  await pushBaidu(state, urls);
+
+  const baidu = await pushBaidu(state, urls);
   writeState(state);
-  await pushIndexNow(state, urls);
+  const indexnow = await pushIndexNow(state, urls);
   writeState(state);
+
+  const baiduText =
+    baidu.status === 0
+      ? baidu.text
+      : `${baidu.status === 200 ? "成功 " + baidu.sent + " 条" : "失败"}（${baidu.text.slice(0, 120)}）`;
+
+  await notify(
+    [
+      "## 官网 SEO 每日提交",
+      `> ${new Date().toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`,
+      `- Sitemap：**${urls.length}** 个 URL`,
+      `- 百度：${baiduText}`,
+      `- IndexNow：${indexnow.count ? `${indexnow.status}，${indexnow.count} 条` : "无新增"}`,
+      `- 累计：百度 ${Object.keys(state.baidu).length}/${urls.length}，IndexNow ${Object.keys(state.indexnow).length}/${urls.length}`,
+    ].join("\n")
+  );
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
   log("失败:", err.message);
+  await notify(`## 官网 SEO 每日提交失败\n> ${err.message}`);
   process.exit(1);
 });
