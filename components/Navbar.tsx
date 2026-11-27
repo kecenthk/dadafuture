@@ -154,7 +154,7 @@ export default function Navbar({
         <div className="flex items-center gap-2 lg:hidden">
           <a
             href={`tel:${brand.contactPhone.replace(/\s/g, "")}`}
-            className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-line text-brand-700"
+            className="flex h-12 w-12 items-center justify-center rounded-[10px] border border-line text-brand-700"
             aria-label={copy.ariaPhone}
           >
             <Phone className="h-4 w-4" />
@@ -162,7 +162,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-line text-ink"
+            className="flex h-12 w-12 items-center justify-center rounded-[10px] border border-line text-ink"
             aria-label={open ? copy.ariaClose : copy.ariaOpen}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

@@ -71,7 +71,7 @@ export default function FloatingContact({
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="mt-6 flex h-10 w-10 items-center justify-center rounded-full bg-brand-900 text-white shadow-[0_4px_16px_rgba(22,50,58,0.2)] transition hover:bg-brand-800"
+          className="mt-6 flex h-12 w-12 items-center justify-center rounded-full bg-brand-900 text-white shadow-[0_4px_16px_rgba(22,50,58,0.2)] transition hover:bg-brand-800"
           aria-label={copy.backToTop}
         >
           <ArrowUp className="h-5 w-5" />
