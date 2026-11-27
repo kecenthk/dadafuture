@@ -3,9 +3,9 @@ import type { PrivacyCopy, TermsCopy } from "../zh/legal";
 /** English copy for the privacy policy and terms of service pages */
 export const privacyCopy: PrivacyCopy = {
   meta: {
-    title: "Privacy Policy｜Data Collection · Cookies & Analytics · Your Rights",
+    title: "Privacy Policy | Data, Cookies & Your Rights | DADAFUTURE",
     description:
-      "DADAFUTURE privacy policy: how we collect, use, store and protect the company and contact information you submit, how we use cookies and third-party analytics, the boundaries of data sharing and processing, and your rights to access, correct or delete personal information, plus how to contact us. We do not sell your personal information.",
+      "Privacy policy: what data we collect, how we use cookies and analytics, data sharing boundaries, and your rights to access, correct or delete personal information.",
   },
   eyebrow: "Legal",
   title: "Privacy Policy",

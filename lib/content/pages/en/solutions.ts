@@ -3,10 +3,9 @@ import type { SolutionsCopy, SolutionDetailCopy } from "../zh/solutions";
 /** English copy for the solutions list and detail pages */
 export const solutionsCopy: SolutionsCopy = {
   meta: {
-    title:
-      "Factory Overseas Solutions | Five Engagement Models · Incubation · Corporate Training · Joint Operations",
+    title: "Factory Export Solutions | DADAFUTURE Engagement Models",
     description:
-      "Five ways to work with DADAFUTURE on overseas growth + AI: Super Partner, Factory Incubation, Corporate Training, Joint Operations B2B + B2C, and Hit-Product Co-creation. Choose build, promote, train, co-create or joint operations based on your products, target markets and team. Incubation starts at RMB 30,000–50,000/month; corporate training at RMB 20,000/session, billed monthly or per project. Start with a diagnosis, then decide.",
+      "Five ways to work with DADAFUTURE: Super Partner, factory incubation, corporate training, joint B2B/B2C operations and hit-product co-creation. Start with a diagnosis.",
   },
   hero: {
     title: "Solutions",

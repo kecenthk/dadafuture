@@ -6,9 +6,9 @@ import type { ServicesCopy } from "../zh/services";
 
 export const servicesCopy: ServicesCopy = {
   meta: {
-    title: "Nine Services for Factory Exports | Websites + SEO/GEO · Advertising · Hit-product co-creation · Partnership",
+    title: "Nine Export Marketing Services for Factories | DADAFUTURE",
     description:
-      "DADAFUTURE's nine core services plus the Super Partner program: hit-product co-creation, WordPress / Shopify website development, SEO/GEO operations, advertising on nine platforms, content and social matrix, LinkedIn outbound development, 2C livestreams, B2B sales conversion and management, and global growth + AI agents.",
+      "Nine services plus Super Partner: hit-product co-creation, AI websites, SEO/GEO, nine-platform ads, social, LinkedIn, live commerce, B2B conversion and AI agents.",
   },
   hero: {
     title: "Services",

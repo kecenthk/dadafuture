@@ -3,10 +3,9 @@ import type { TrainingCopy } from "../zh/training";
 /** English copy for the training page */
 export const trainingCopy: TrainingCopy = {
   meta: {
-    title:
-      "Overseas + AI Workshop｜Corporate AI Training · Founder IP Bootcamp · Training & Enablement",
+    title: "Overseas + AI Workshop | Corporate Training | DADAFUTURE",
     description:
-      "DADAFUTURE enablement: Founder IP + Light Physical Business training, corporate AI application training, and the Overseas + AI offline workshop (Session 3, December 17, 13:00–17:30, four speakers, RMB 1,980/person, 20 seats only, includes one post-session 1v1 diagnosis). Real practitioners teaching real playbooks.",
+      "DADAFUTURE training: Founder IP + light physical business, corporate AI training, and the Overseas + AI workshop on December 17 (RMB 1,980, 20 seats, 1v1 diagnosis).",
   },
   hero: {
     title: "Training & Enablement",

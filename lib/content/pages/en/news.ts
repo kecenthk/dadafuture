@@ -6,9 +6,9 @@ import type { NewsCopy } from "../zh/news";
 
 export const newsCopy: NewsCopy = {
   meta: {
-    title: "News | “Going Global + AI” salon · Hit-product methodology · Category upside insights",
+    title: "DADAFUTURE News | Export Insights & AI Salon Recaps",
     description:
-      "DADAFUTURE news: Session 3 of the Going Global + AI workshop on December 17, a Session 2 recap, and insights on hit products, category upside and AI content.",
+      "DADAFUTURE news: Session 3 of the Going Global + AI workshop on December 17 (20 seats), a Session 2 recap, plus hit-product, category and AI content insights.",
   },
   hero: {
     title: "News",

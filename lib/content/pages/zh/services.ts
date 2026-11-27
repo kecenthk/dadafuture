@@ -6,7 +6,7 @@ export const servicesCopy = {
   meta: {
     title: "工厂出海九大服务｜独立站 + SEO/GEO · 广告投放 · 爆款共创 · 合伙人",
     description:
-      "搭搭未来九大核心服务 + 超级合伙人全案：爆款共创、WordPress / Shopify 独立站建站、SEO/GEO 运营、九大平台广告投放、内容与社媒矩阵、LinkedIn 主动开发、2C 直播、B2B 业务转化与管理、出海 + AI 智能体。",
+      "搭搭未来九大核心服务 + 超级合伙人全案：爆款共创、AI / WordPress / Shopify 独立站、SEO/GEO、九大平台广告投放、社媒矩阵、LinkedIn 主动开发、2C 直播、B2B 转化与出海 AI 智能体。预约诊断，按品类定制组合。",
   },
   hero: {
     title: "服务产品",

@@ -6,9 +6,9 @@ import type { AboutCopy } from "../zh/about";
 
 export const aboutCopy: AboutCopy = {
   meta: {
-    title: "About DADAFUTURE | Brand incubator · Super marketing partner for factories going global · Team and industry leads",
+    title: "About DADAFUTURE | Factory Export Growth Team & Results",
     description:
-      "DADAFUTURE is a brand incubator and super marketing partner for factories going global: driven by the dual wheels of “IP commercialization × hit-product co-creation”, we turn good factory products into category champions. Our core team brings 30+ cumulative years of export experience across 9+ platforms, covering health & wellness, beauty & personal care, home & building and global growth; 50+ signed IPs and 5B+ CNY in hit-product co-creation revenue. Book a global growth diagnosis with us.",
+      "Brand incubator and super marketing partner for factories going global: 50+ signed IPs, 5B+ CNY co-created revenue, 30+ years export experience. Book a diagnosis.",
   },
   hero: {
     title: "About DADAFUTURE",

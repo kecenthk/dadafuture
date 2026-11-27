@@ -43,14 +43,16 @@ export default function ResearchIndex({
   kinds,
   categories,
   regions,
+  initialQuery = "",
 }: {
   reports: ResearchReport[];
   copy: Copy;
   kinds: ResearchKind[];
   categories: string[];
   regions: string[];
+  initialQuery?: string;
 }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [activeKinds, setActiveKinds] = useState<ResearchKind[]>([]);
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [activeRegions, setActiveRegions] = useState<string[]>([]);

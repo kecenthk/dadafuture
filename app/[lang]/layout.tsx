@@ -38,6 +38,18 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: site.siteName,
       title: site.ogTitle,
       description: site.defaultDescription,
+      images: [
+        {
+          url: "/brand/dual-wheel-model.jpg",
+          alt: site.siteName,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: site.ogTitle,
+      description: site.defaultDescription,
+      images: ["/brand/dual-wheel-model.jpg"],
     },
     icons: {
       icon: [

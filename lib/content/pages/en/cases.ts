@@ -6,9 +6,9 @@ import type { CasesCopy } from "../zh/cases";
 
 export const casesCopy: CasesCopy = {
   meta: {
-    title: "Factory Export Cases | Four tracks · Hit-product co-creation · Website inquiries · Advertising results wall",
+    title: "Factory Export Case Studies | Real Inquiries & Ads Data",
     description:
-      "DADAFUTURE's hands-on results wall: Xingwei Ceramic New Materials, Yinsike Quiet Pod, Hong Kong Qitai health exports, new energy vehicle exports, 12M+ CNY in a 3-hour brand session, the Jiayan high-flame wok burner category champion and more, browsable by the four tracks of home & building / beauty & personal care / health & wellness / industrial upgrade.",
+      "Real results: ceramic materials, acoustic pods, health exports, new energy vehicles, 12M+ CNY brand sessions. Browse four tracks with inquiries and advertising data.",
   },
   hero: {
     title: "Case Studies",

@@ -22,9 +22,14 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default async function ResearchPage() {
+export default async function ResearchPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
   const locale = await currentLocale();
   if (locale !== "zh") permanentRedirect("/research");
+  const { q } = await searchParams;
 
   const listJsonLd = {
     "@context": "https://schema.org",
@@ -54,6 +59,7 @@ export default async function ResearchPage() {
             kinds={REPORT_KINDS}
             categories={REPORT_CATEGORIES}
             regions={REPORT_REGIONS}
+            initialQuery={q ?? ""}
           />
 
           <div className="mt-10 rounded-[14px] bg-brand-50 p-6 ring-1 ring-line sm:p-8">

@@ -6,9 +6,9 @@ import type { ContactCopy } from "../zh/contact";
 
 export const contactCopy: ContactCopy = {
   meta: {
-    title: "Contact Us | Factory export enquiries · Website and advertising plans · Salon registration",
+    title: "Contact DADAFUTURE | Free Factory Export Growth Plan",
     description:
-      "Contact DADAFUTURE: Shiyue · Project Lead, 137 2672 4687 (same number on WeChat) for a free growth plan, the export resource pack worth ¥199, and registration for the “Going Global + AI” offline practice salon.",
+      "Talk to DADAFUTURE for a free export growth plan, the ¥199 export resource pack and Session 3 of our Going Global + AI workshop. Call or WeChat +86 137 2672 4687.",
   },
   hero: {
     title: "Contact Us",
