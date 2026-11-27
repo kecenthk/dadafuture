@@ -112,6 +112,10 @@ export default async function Footer({ locale }: { locale: Locale }) {
           <a href="mailto:contact@dadafuture.com" className="transition hover:text-amber-400">
             contact@dadafuture.com
           </a>
+          <span>
+            {locale === "en" ? "Address" : "地址"}：
+            {locale === "en" ? BRAND.addressEn : BRAND.address}
+          </span>
           <a
             href="https://beian.miit.gov.cn/"
             target="_blank"

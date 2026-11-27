@@ -96,6 +96,13 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
     slogan: data.BRAND.slogan,
     description: `${data.BRAND.positioning} — ${data.BRAND.promise}`,
     telephone: "+86-137-2672-4687",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "江夏流铁岗路 12 号，白云区黄石街",
+      addressLocality: "广州市",
+      addressRegion: "广东省",
+      addressCountry: "CN",
+    },
     contactPoint: [
       {
         "@type": "ContactPoint",

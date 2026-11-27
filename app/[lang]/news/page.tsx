@@ -20,16 +20,44 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
+const SITE = "https://www.dadafuture.com";
+
 export default async function NewsPage() {
   const locale = await currentLocale();
   const data = await getData();
   const copy = (await getPages()).news;
 
+  const newsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: copy.hero.title,
+    url: `${SITE}${localizePath("/news", locale)}`,
+    author: { "@type": "Organization", name: "搭搭未来编辑部", url: SITE },
+    publisher: { "@type": "Organization", name: "搭搭未来 DADAFUTURE", url: SITE },
+    dateModified: "2026-11-27",
+    blogPost: data.NEWS.map((n) => ({
+      "@type": "BlogPosting",
+      headline: n.title,
+      description: n.desc,
+      datePublished: n.date,
+      author: { "@type": "Organization", name: "搭搭未来编辑部", url: SITE },
+      publisher: { "@type": "Organization", name: "搭搭未来 DADAFUTURE", url: SITE },
+    })),
+  };
+
   return (
     <>
       <PageHero title={copy.hero.title} subtitle={copy.hero.subtitle} description={copy.hero.description} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(newsJsonLd) }} />
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1040px] px-5 sm:px-8 lg:px-10">
+          <p className="mb-4 text-xs text-sub">
+            {locale === "en"
+              ? "By DADAFUTURE Editorial Team · Updated 2026-11-27"
+              : locale === "zh-HK"
+                ? "作者：搭搭未來編輯部 · 更新於 2026-11-27"
+                : "作者：搭搭未来编辑部 · 更新于 2026-11-27"}
+          </p>
           <div className="space-y-4">
             {data.NEWS.map((n) => (
               <article

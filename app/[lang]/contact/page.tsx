@@ -84,6 +84,8 @@ export default async function ContactPage() {
             </div>
             <div className="rounded-[14px] bg-brand-50 p-6 ring-1 ring-line">
               <p className="text-xs leading-relaxed text-sub">
+                {locale === "en" ? "Address" : "地址"}：{locale === "en" ? BRAND.addressEn : BRAND.address}
+                <br />
                 {copy.aside.siteLabel}：{BRAND.site} ｜ {BRAND.icp}
               </p>
             </div>

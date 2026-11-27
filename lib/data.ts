@@ -13,6 +13,8 @@ export const BRAND = {
   contactPhone: "137 2672 4687",
   wechatQr: "/brand/wechat-qr.png",
   wecomUrl: "https://work.weixin.qq.com/ca/cawcde4cf746b97820",
+  address: "广东省广州市白云区黄石街江夏流铁岗路 12 号",
+  addressEn: "No. 12 Liutiegang Road, Jiangxia, Huangshi Street, Baiyun District, Guangzhou, Guangdong, China",
   site: "www.dadafuture.com",
   icp: "搭搭未来 × 云店+ 联合品牌",
 };
