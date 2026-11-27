@@ -134,6 +134,15 @@ async function main() {
       ? baidu.text
       : `${baidu.status === 200 ? "成功 " + baidu.sent + " 条" : "失败"}（${baidu.text.slice(0, 120)}）`;
 
+  const baiduFailed = baidu.status !== 0 && baidu.status !== 200;
+  const indexnowFailed = indexnow.status !== 0 && !indexnow.ok;
+  const pushed = (baidu.sent || 0) + (indexnow.count || 0);
+
+  if (!pushed && !baiduFailed && !indexnowFailed) {
+    log("无实际推送且无失败，跳过企业微信通知");
+    return;
+  }
+
   await notify(
     [
       "## 官网 SEO 每日提交",
