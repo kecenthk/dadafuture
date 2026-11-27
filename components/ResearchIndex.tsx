@@ -160,7 +160,7 @@ export default function ResearchIndex({
           </button>
         </div>
       ) : (
-        <div className="mt-6 grid gap-4 sm:gap-5 lg:grid-cols-2">
+        <div className="mt-6 grid gap-4 sm:gap-5 lg:grid-cols-2 xl:grid-cols-3">
           {filtered.map((r) => (
             <a
               key={r.slug}
