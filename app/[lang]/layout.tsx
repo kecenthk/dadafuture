@@ -129,11 +129,13 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
     <html lang={meta.htmlLang} className="h-full antialiased">
       <head>
         <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N4N4HNFN" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMZSJJ37XR" />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());`,
+gtag('js', new Date());
+gtag('config', 'G-EMZSJJ37XR');`,
           }}
         />
         <script
