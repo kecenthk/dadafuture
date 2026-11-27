@@ -109,6 +109,9 @@ export default async function Footer({ locale }: { locale: Locale }) {
             </Link>
           )}
           <span>{c.phoneLabel}：{BRAND.contactPhone}</span>
+          <a href="mailto:contact@dadafuture.com" className="transition hover:text-amber-400">
+            contact@dadafuture.com
+          </a>
           <a
             href="https://beian.miit.gov.cn/"
             target="_blank"
