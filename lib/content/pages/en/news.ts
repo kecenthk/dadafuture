@@ -8,7 +8,7 @@ export const newsCopy: NewsCopy = {
   meta: {
     title: "News | “Going Global + AI” salon · Hit-product methodology · Category upside insights",
     description:
-      "DADAFUTURE news: Session 3 of the Going Global + AI workshop on December 17 with four practitioner speakers, a recap of Session 2, plus insights on hit products, category upside and AI content at scale.",
+      "DADAFUTURE news: Session 3 of the Going Global + AI workshop on December 17, a Session 2 recap, and insights on hit products, category upside and AI content.",
   },
   hero: {
     title: "News",

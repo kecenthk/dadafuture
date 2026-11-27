@@ -117,7 +117,7 @@ export const commonCopy = {
     defaultTitle:
       "Your Factory's Overseas Super Marketing Partner | AI Website + SEO/GEO + Nine-Platform Advertising | DADAFUTURE",
     defaultDescription:
-      "DADAFUTURE — super marketing partner for B2B factories going global: AI websites, SEO/GEO, nine-platform advertising and hit-product co-creation. Session 3 of the Going Global + AI workshop runs December 17 with four practitioner speakers.",
+      "DADAFUTURE — go-global marketing partner for B2B factories: AI websites, SEO/GEO, nine-platform ads and hit products. Session 3 workshop runs December 17.",
     titleTemplate: "%s | DADAFUTURE",
     keywords: [
       "factory export",
