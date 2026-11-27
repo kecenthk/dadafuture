@@ -8,7 +8,7 @@ import type { DataContent } from "@/lib/content/data";
 
 type FormCopy = CommonCopy["form"];
 
-/** 联系/留资表单：公司 / 产品 SKU / 目标市场 / 产能成本区间 / 当前卡点 */
+/** 联系/留资表单：公司、联系人、电话、微信、产品 SKU、目标市场、客户画像、预算、出海基础、启动时间、卡点 */
 export default function ContactForm({
   copy,
   brand,
@@ -20,9 +20,15 @@ export default function ContactForm({
   const intent = params.get("type") === "resource" ? "resource" : "plan";
   const [form, setForm] = useState({
     company: "",
+    contactPerson: "",
+    phone: "",
+    wechat: "",
     product: "",
     market: "",
+    profile: "",
     budget: copy.budgets[1],
+    experience: "",
+    timeline: "",
     pain: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -38,6 +44,8 @@ export default function ContactForm({
   const validate = () => {
     const next: Record<string, string> = {};
     if (!form.company.trim()) next.company = copy.companyError;
+    if (!form.contactPerson.trim()) next.contactPerson = copy.contactPersonError;
+    if (!/^[\d+\-\s()]{6,20}$/.test(form.phone.trim())) next.phone = copy.phoneError;
     if (!form.product.trim()) next.product = copy.productError;
     if (!form.market.trim()) next.market = copy.marketError;
     if (!form.pain.trim()) next.pain = copy.painError;
@@ -56,7 +64,7 @@ export default function ContactForm({
         body: JSON.stringify({ ...form, intent }),
       });
     } catch {
-      /* stub：接口不可用时仍视为已记录，后续由销售人工跟进 */
+      /* 接口不可用时仍视为已记录，后续由销售人工跟进 */
     }
     setStatus("done");
   };
@@ -84,6 +92,8 @@ export default function ContactForm({
       errors[k] ? "border-red-400" : "border-line"
     }`;
 
+  const labelCls = "mb-1.5 block text-sm font-medium text-ink";
+
   return (
     <form onSubmit={submit} className="rounded-[14px] bg-white p-6 ring-1 ring-line md:p-8" noValidate>
       <p className="mb-5 rounded-[10px] bg-surface px-4 py-3 text-xs leading-relaxed text-brand-700">
@@ -91,28 +101,54 @@ export default function ContactForm({
       </p>
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="company">
+          <label className={labelCls} htmlFor="company">
             {copy.companyLabel} <span className="text-red-500">*</span>
           </label>
           <input id="company" className={inputCls("company")} placeholder={copy.companyPlaceholder} value={form.company} onChange={set("company")} />
           {errors.company && <p className="mt-1 text-xs text-red-500">{errors.company}</p>}
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="product">
+          <label className={labelCls} htmlFor="contactPerson">
+            {copy.contactPersonLabel} <span className="text-red-500">*</span>
+          </label>
+          <input id="contactPerson" className={inputCls("contactPerson")} placeholder={copy.contactPersonPlaceholder} value={form.contactPerson} onChange={set("contactPerson")} autoComplete="name" />
+          {errors.contactPerson && <p className="mt-1 text-xs text-red-500">{errors.contactPerson}</p>}
+        </div>
+        <div>
+          <label className={labelCls} htmlFor="phone">
+            {copy.phoneLabel} <span className="text-red-500">*</span>
+          </label>
+          <input id="phone" type="tel" className={inputCls("phone")} placeholder={copy.phonePlaceholder} value={form.phone} onChange={set("phone")} autoComplete="tel" />
+          {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+        </div>
+        <div>
+          <label className={labelCls} htmlFor="wechat">
+            {copy.wechatLabel}
+          </label>
+          <input id="wechat" className={inputCls("wechat")} placeholder={copy.wechatPlaceholder} value={form.wechat} onChange={set("wechat")} />
+        </div>
+        <div>
+          <label className={labelCls} htmlFor="product">
             {copy.productLabel} <span className="text-red-500">*</span>
           </label>
           <input id="product" className={inputCls("product")} placeholder={copy.productPlaceholder} value={form.product} onChange={set("product")} />
           {errors.product && <p className="mt-1 text-xs text-red-500">{errors.product}</p>}
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="market">
+          <label className={labelCls} htmlFor="market">
             {copy.marketLabel} <span className="text-red-500">*</span>
           </label>
           <input id="market" className={inputCls("market")} placeholder={copy.marketPlaceholder} value={form.market} onChange={set("market")} />
           {errors.market && <p className="mt-1 text-xs text-red-500">{errors.market}</p>}
         </div>
+        <div className="md:col-span-2">
+          <label className={labelCls} htmlFor="profile">
+            {copy.profileLabel}
+          </label>
+          <input id="profile" className={inputCls("profile")} placeholder={copy.profilePlaceholder} value={form.profile} onChange={set("profile")} />
+        </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="budget">
+          <label className={labelCls} htmlFor="budget">
             {copy.budgetLabel}
           </label>
           <select id="budget" className={inputCls("budget")} value={form.budget} onChange={set("budget")}>
@@ -121,8 +157,30 @@ export default function ContactForm({
             ))}
           </select>
         </div>
+        <div>
+          <label className={labelCls} htmlFor="timeline">
+            {copy.timelineLabel}
+          </label>
+          <select id="timeline" className={inputCls("timeline")} value={form.timeline} onChange={set("timeline")}>
+            <option value="">{copy.timelinePlaceholder}</option>
+            {copy.timelineOptions.map((t) => (
+              <option key={t}>{t}</option>
+            ))}
+          </select>
+        </div>
         <div className="md:col-span-2">
-          <label className="mb-1.5 block text-sm font-medium text-ink" htmlFor="pain">
+          <label className={labelCls} htmlFor="experience">
+            {copy.experienceLabel}
+          </label>
+          <select id="experience" className={inputCls("experience")} value={form.experience} onChange={set("experience")}>
+            <option value="">{copy.experiencePlaceholder}</option>
+            {copy.experienceOptions.map((o) => (
+              <option key={o}>{o}</option>
+            ))}
+          </select>
+        </div>
+        <div className="md:col-span-2">
+          <label className={labelCls} htmlFor="pain">
             {copy.painLabel} <span className="text-red-500">*</span>
           </label>
           <textarea

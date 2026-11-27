@@ -13,7 +13,7 @@ function esc(v: unknown) {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const required = ["company", "product", "market", "pain"];
+    const required = ["company", "contactPerson", "phone", "product", "market", "pain"];
     for (const key of required) {
       if (!body?.[key] || typeof body[key] !== "string" || !body[key].trim()) {
         return NextResponse.json(
@@ -39,9 +39,15 @@ export async function POST(req: Request) {
     } else {
       const rows: Array<[string, string]> = [
         ["公司名称", body.company],
+        ["联系人", body.contactPerson],
+        ["联系电话", body.phone],
+        ["微信号", body.wechat || "未填写"],
         ["爆款产品（SKU）", body.product],
         ["目标市场", body.market],
+        ["目标客户画像", body.profile || "未填写"],
         ["年度营销预算", body.budget || "未填写"],
+        ["现有出海基础", body.experience || "未填写"],
+        ["期望启动时间", body.timeline || "未填写"],
         ["当前卡点", body.pain],
         ["申请类型", intentLabel],
         ["提交时间", createdAt],
@@ -91,9 +97,15 @@ export async function POST(req: Request) {
     }
     console.log("[contact] new lead:", {
       company: body.company,
+      contactPerson: body.contactPerson,
+      phone: body.phone,
+      wechat: body.wechat,
       product: body.product,
       market: body.market,
+      profile: body.profile,
       budget: body.budget,
+      experience: body.experience,
+      timeline: body.timeline,
       pain: body.pain,
       intent,
       mail: mailOk,
