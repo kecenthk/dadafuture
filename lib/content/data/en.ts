@@ -733,7 +733,7 @@ export const SOLUTIONS: Solution[] = [
     playbook: [
       { title: "Ride the channel", desc: "LinkedIn outbound development + Google SEO/GEO to reach overseas procurement decision-makers precisely" },
       { title: "Break out with a hit product", desc: "Build a category benchmark with a technology-driven hit and escape price competition" },
-      { title: "Offshore digital incubation", desc: "No inventory, no advance funding, no trade margin — focused on long-term B2B value" },
+      { title: "Offshore digital incubation", desc: "Focused on long-term B2B value" },
     ],
     cases: [
       { name: "Xingwei Ceramic New Materials", desc: "Industrial “ceramic + metal” composite structural parts, manufacturing export, a new-material benchmark", data: "New-material exports" },
@@ -1116,8 +1116,8 @@ export const FAQS = [
     a: "They are for B2B business owners and decision-makers. Session 3 of the “Going Global + AI” offline practice salon runs on December 17 (Thursday), 13:00–17:30, with four speakers, at ¥1,980 per person and only 20 seats. Registration: submit the form, pass review, pay to lock your seat; includes a tool kit and one post-session 1v1 diagnosis.",
   },
   {
-    q: "Do you take goods, front cash or earn a trading margin?",
-    a: "No. We do not take goods, front cash or earn any trading margin — we only charge service and full-package fees. Ad spend goes directly to the platforms and clients manage their own accounts, fully transparent.",
+    q: "How do you charge for your services?",
+    a: "We charge service and full-package fees only. Ad spend goes directly to the platforms and clients manage their own accounts, fully transparent.",
   },
 ];
 

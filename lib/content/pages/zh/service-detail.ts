@@ -5,7 +5,7 @@
 export const serviceDetailCopy = {
   metaTitleSuffix: "工厂出海服务",
   metaDescriptionTemplate:
-    "{name}：{short}。搭搭未来——工厂出海超级营销合伙人，AI 独立站、SEO/GEO、九大平台广告投放与爆款共创一体交付，不碰货、不垫资、无贸易差价，效果与计费口径写进方案。",
+    "{name}：{short}。搭搭未来——工厂出海超级营销合伙人，AI 独立站、SEO/GEO、九大平台广告投放与爆款共创一体交付，效果与计费口径写进方案。",
   parent: "服务产品",
   intro: "服务说明",
   deliverables: "交付内容",

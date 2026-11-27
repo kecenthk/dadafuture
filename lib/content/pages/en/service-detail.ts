@@ -7,7 +7,7 @@ import type { ServiceDetailCopy } from "../zh/service-detail";
 export const serviceDetailCopy: ServiceDetailCopy = {
   metaTitleSuffix: "Factory Export Service",
   metaDescriptionTemplate:
-    "{name}: {short}. DADAFUTURE — super marketing partner for factories going global, delivering AI websites, SEO/GEO, advertising on nine platforms and hit-product co-creation as one, with no inventory, no advance funding and no trade margin, and with performance and billing terms written into the plan.",
+    "{name}: {short}. DADAFUTURE — super marketing partner for factories going global, delivering AI websites, SEO/GEO, advertising on nine platforms and hit-product co-creation as one, with performance and billing terms written into the plan.",
   parent: "Services",
   intro: "Service overview",
   deliverables: "Deliverables",

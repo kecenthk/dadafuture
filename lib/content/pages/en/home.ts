@@ -9,7 +9,7 @@ export const homeCopy: HomeCopy = {
     badge: "Brand incubator · 17 years of hands-on marketing · 50+ incubated and signed IPs · 9+ platforms covered",
     heroAlt: "The DADAFUTURE company entrance",
     promiseSuffix:
-      " — helping manufacturing brands upgrade as they go global: no inventory, no advance funding, no trade margin, covering new technology, new materials, new energy and smart manufacturing.",
+      " — helping manufacturing brands upgrade as they go global, covering new technology, new materials, new energy and smart manufacturing.",
     ctaPrimary: "Get a Free Growth Plan",
     ctaSecondary: "Get the Export Resource Pack",
     trust: ["Dedicated account team", "Transparent pricing", "Ad spend paid to platforms", "Results in 90 days"],

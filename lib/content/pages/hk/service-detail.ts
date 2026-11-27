@@ -7,7 +7,7 @@
 export const serviceDetailCopy = {
   metaTitleSuffix: "工廠出海服務",
   metaDescriptionTemplate:
-    "{name}：{short}。搭搭未來——工廠出海超級營銷合夥人，AI 獨立站、SEO/GEO、九大平台廣告投放與爆款共創一體交付，不碰貨、不墊資、無貿易差價，效果與計費口徑寫進方案。",
+    "{name}：{short}。搭搭未來——工廠出海超級營銷合夥人，AI 獨立站、SEO/GEO、九大平台廣告投放與爆款共創一體交付，效果與計費口徑寫進方案。",
   parent: "服務產品",
   intro: "服務説明",
   deliverables: "交付內容",
