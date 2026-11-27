@@ -136,6 +136,17 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());`,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8fa1b2a81ec75d4743b7c771ca5a1915";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();`,
+          }}
+        />
       </head>
       <body className="flex min-h-full flex-col">
         <script
