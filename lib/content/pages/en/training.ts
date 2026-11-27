@@ -6,7 +6,7 @@ export const trainingCopy: TrainingCopy = {
     title:
       "Overseas + AI Workshop｜Corporate AI Training · Founder IP Bootcamp · Training & Enablement",
     description:
-      "DADAFUTURE enablement: Founder IP + Light Physical Business training, corporate AI application training, and the Overseas + AI offline workshop (Session 2, Nov 19, 13:00–17:30, RMB 1,980/person, 20 seats only, includes one 1:1 diagnosis within 30 days). Real practitioners teaching real playbooks.",
+      "DADAFUTURE enablement: Founder IP + Light Physical Business training, corporate AI application training, and the Overseas + AI offline workshop (Session 3, December 17, 13:00–17:30, four speakers, RMB 1,980/person, 20 seats only, includes one post-session 1v1 diagnosis). Real practitioners teaching real playbooks.",
   },
   hero: {
     title: "Training & Enablement",
@@ -87,7 +87,7 @@ export const trainingCopy: TrainingCopy = {
   salon: {
     latestTemplate: "Latest session · {edition}",
     title: "Overseas + AI Offline Workshop",
-    desc: "Only playbooks we are running right now, no industry-trend talk — three speakers, 20 seats, closed-door",
+    desc: "Only the playbooks we are running right now, no industry-trend talk — four speakers, 20 seats, closed-door",
     timeLabel: "Time",
     placeLabel: "Venue",
     seatsLabel: "Seats",
@@ -95,11 +95,18 @@ export const trainingCopy: TrainingCopy = {
     feeTemplate: "RMB {price}/person",
     venueNote: "Check in and we'll guide you in",
     images: [
+      { src: "/salon/salon-3-invite.png", alt: "Session 3 Overseas + AI Workshop invitation" },
+      { src: "/salon/salon-3-speakers.png", alt: "Session 3 lineup of four speakers" },
+    ],
+    speakersTitle: "Four speakers · Only the playbooks they are running right now",
+    recapTitle: "Previous session · Session 2",
+    recapDesc:
+      "On site on November 19 for Session 2: three speakers, 20 seats, a closed-door teardown — hit-product methodology, the 100M-CNY path to a subcategory championship, and Codex video production — and every attendee took home a ¥199 export resource pack.",
+    recapImages: [
       { src: "/salon/salon-2-invite.png", alt: "Session 2 Overseas + AI Workshop invitation" },
       { src: "/salon/salon-2-speakers.png", alt: "Session 2 speaker lineup" },
-      { src: "/salon/salon-2-recap.png", alt: "Previous workshop on site" },
+      { src: "/salon/salon-2-recap.png", alt: "Session 2 workshop on site" },
     ],
-    speakersTitle: "Three speakers · Only playbooks they are running right now",
     agendaTitle: "Agenda",
     perksTitle: "Take-home kit (RMB 199 export resource pack · 6 items)",
     signupCta: "Reserve / ask about a seat",

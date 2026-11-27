@@ -964,8 +964,8 @@ export const TRAININGS = [
   {
     icon: "Coffee",
     name: "“Going global + AI” offline practice salon",
-    desc: "A half-day, six-part hands-on salon. Session 2 on November 19 (Thursday) 13:00–17:30, ¥1980 per person, only 20 seats, open to B2B decision-makers only. Includes a tool kit and one 1v1 diagnosis after the session.",
-    points: ["Seeing is believing through study visits", "Registration: form → review → payment to lock a seat", "Closed-door format · we deconstruct the bottleneck you bring"],
+    desc: "A half-day, four-part hands-on salon. Session 3 on December 17 (Thursday) 13:00–17:30, four speakers, ¥1,980 per person, only 20 seats, open to B2B decision-makers only. Includes a tool kit and one 1v1 diagnosis after the session.",
+    points: ["Four speakers, each teaching the playbook they are running right now", "Registration: form → review → payment to lock a seat", "Closed-door format · we deconstruct the bottleneck you bring"],
   },
   {
     icon: "Bot",
@@ -981,68 +981,87 @@ export const TRAININGS = [
   },
 ];
 
-/** Latest salon (session 2) */
+/** Latest salon (session 3) */
 export const SALON = {
-  edition: "Session 2",
-  date: "November 19, Thursday",
-  time: "13:00–17:30 (check-in at 12:30)",
+  edition: "Session 3",
+  date: "December 17, Thursday",
+  time: "13:00–17:30 (doors close at 17:30 sharp)",
   venue: "DADAFUTURE · Aesthetics Space",
   seats: "Only 20 seats",
   price: "1980",
-  priceNote: "Includes a tool kit and one 1v1 diagnosis within 30 days after the session",
-  audience: "Open to B2B company owners and decision-makers only",
+  priceNote: "Includes a tool kit and one 1v1 diagnosis after the session",
+  audience: "Open to B2B company decision-makers only",
   speakers: [
     {
       no: "01",
-      tag: "Methodology",
-      name: "Xiaofeng",
-      role: "Co-founder of DADAFUTURE",
-      topic: "Hit-product methodology",
-      metrics: ["30+ hit products incubated past 100M CNY", "5B+ CNY in driven transaction value"],
-      desc: "How to choose a hit product, make it content-ready and keep trial-and-error costs to a minimum — one method, applied both ways.",
-      quote: "A hit product isn't luck. It's a method you can reuse.",
+      tag: "Independent website",
+      name: "Cola",
+      role: "Independent website · SEO/GEO in practice",
+      topic: "The independent website: built to catch inquiries",
+      metrics: ["35 min"],
+      desc: "Not a digital business card — structure, content and speed tuned so buyers can find you, trust you and contact you.",
+      quote: "Your website isn't a business card. It's the ground where inquiries land.",
     },
     {
       no: "02",
-      tag: "Practitioner",
-      name: "Coco · Zhou Jing",
-      role: "Hidden champion · Category champion",
-      topic: "The 100M-CNY path to a subcategory championship",
-      metrics: ["150M+ CNY annual sales", "A dozen+ countries · No.1 in subcategory"],
-      desc: "From a few million to 150M+: product selection, patents, channels and trade-show cadence — how one small earplug held the category's top spot.",
-      quote: "Take one small thing and make it No.1 in its category.",
+      tag: "Social & paid media",
+      name: "Xue",
+      role: "Social content · Facebook advertising",
+      topic: "Social content and Facebook advertising",
+      metrics: ["35 min"],
+      desc: "Content is not about posting more, it is about posting right: prove it with a small budget first, then put the money behind the creative that moves.",
+      quote: "Prove the data first, then commit the budget.",
     },
     {
       no: "03",
+      tag: "Outbound",
+      name: "Shiyue",
+      role: "20-year export sales · LinkedIn outbound",
+      topic: "LinkedIn outbound: stop waiting for inquiries",
+      metrics: ["35 min"],
+      desc: "Turn LinkedIn into an outbound line that runs every working day: find people, break the ice, follow up, close.",
+      quote: "Don't wait for inquiries. Generate your own.",
+    },
+    {
+      no: "04",
       tag: "AI in practice",
-      name: "Chen Zhen",
-      role: "Dozens of million-view cases · Producing content at scale with AI",
-      topic: "30 minutes, one hands-on Codex walkthrough",
-      metrics: ["1M+ views on a single top video", "6× per-person output"],
-      desc: "From one video a week to one a day — running the whole pipeline live, from topic selection to final cut to automatic publishing.",
-      quote: "Content isn't inspiration. It's a pipeline you can run.",
+      name: "Coco (Zhou Jing)",
+      role: "Subcategory champion · Hidden champion",
+      topic: "Where AI actually saves time in B2B export",
+      metrics: ["25 min"],
+      desc: "Prospecting, proposals, creative: which of the three you can hand to AI, and which get slower when you do.",
+      quote: "AI saves time, not judgment.",
     },
   ],
   agenda: [
-    { time: "12:30", title: "Check-in · Materials pickup", who: "Event team" },
-    { time: "13:00", title: "Space tour 1F→4F", who: "Qiqi" },
+    { time: "13:00", title: "Check-in · Materials pickup", who: "Event team" },
     { time: "13:30", title: "Opening · DADAFUTURE dual wheels", who: "Dabing" },
-    { time: "13:40", title: "① Hit-product methodology", who: "Xiaofeng" },
-    { time: "14:20", title: "② The path to 100M", who: "Coco" },
-    { time: "15:00", title: "Tea break 10′", who: "Event team" },
-    { time: "15:10", title: "③ Making videos with Codex", who: "Chen Zhen" },
-    { time: "15:40", title: "Overseas online acquisition · Service offering", who: "Shiyue" },
-    { time: "15:55", title: "Open networking · Q&A", who: "All three speakers" },
-    { time: "16:25", title: "Interviews with 3 target clients", who: "Event team" },
-    { time: "16:40", title: "Group photo", who: "Everyone" },
-    { time: "16:45", title: "One-on-one · Private conversations (ends 17:30)", who: "All three speakers" },
+    { time: "13:40", title: "① Independent website: built to catch inquiries", who: "Cola" },
+    { time: "14:15", title: "② Social content and Facebook advertising", who: "Xue" },
+    { time: "14:50", title: "Tea break 10′", who: "Event team" },
+    { time: "15:00", title: "③ LinkedIn outbound: stop waiting for inquiries", who: "Shiyue" },
+    { time: "15:35", title: "④ Where AI actually saves time in B2B export", who: "Coco" },
+    { time: "16:00", title: "Live teardown · Q&A", who: "Four speakers" },
+    { time: "16:30", title: "Post-session 1v1 diagnosis", who: "Four speakers" },
+    { time: "17:30", title: "Close", who: "Event team" },
   ],
   values: [
     { title: "Closed-door", desc: "Open to B2B company owners and decision-makers only — no public lecture on site." },
     { title: "Deconstructed live", desc: "Each company brings one real bottleneck, and the speakers deconstruct it on the spot." },
-    { title: "Take it back to use", desc: "A tool kit plus one 1v1 diagnosis within 30 days after the session, ready to apply immediately." },
+    { title: "Take it back to use", desc: "A tool kit plus one 1v1 diagnosis after the session, ready to apply immediately." },
   ],
-  claim: "Come with your company's real bottleneck and leave with it deconstructed.",
+  claim: "Don't come to sit and listen — come with your company's real bottleneck and leave with it deconstructed.",
+};
+
+/** Previous salon recap (session 2) */
+export const SALON_PREVIOUS = {
+  edition: "Session 2",
+  date: "November 19",
+  images: [
+    { src: "/salon/salon-2-invite.png", alt: "Session 2 “Going Global + AI” workshop invitation" },
+    { src: "/salon/salon-2-speakers.png", alt: "Session 2 speaker lineup" },
+    { src: "/salon/salon-2-recap.png", alt: "Session 2 workshop on site" },
+  ],
 };
 
 export const SALON_PERKS = [
@@ -1091,7 +1110,7 @@ export const FAQS = [
   },
   {
     q: "Who are the training and offline salon for, and how do we sign up?",
-    a: "They are for B2B business owners and decision-makers. Session 2 of the “Going Global + AI” offline practice salon runs on November 19 (Thursday), 13:00–17:30, at ¥1,980 per person with only 20 seats. Registration: submit the form, pass review, pay to lock your seat; includes a tool kit and one post-session 1v1 diagnosis.",
+    a: "They are for B2B business owners and decision-makers. Session 3 of the “Going Global + AI” offline practice salon runs on December 17 (Thursday), 13:00–17:30, with four speakers, at ¥1,980 per person and only 20 seats. Registration: submit the form, pass review, pay to lock your seat; includes a tool kit and one post-session 1v1 diagnosis.",
   },
   {
     q: "Do you take goods, front cash or earn a trading margin?",
@@ -1111,9 +1130,14 @@ export const RESOURCE_PACK = {
 
 export const NEWS = [
   {
-    date: "2026-10",
-    title: "“Going global + AI” offline practice salon, session 2 — now enrolling",
-    desc: "November 19 (Thursday) 13:00–17:30, ¥1980 per person, only 20 seats, including a tool kit and one 1v1 diagnosis after the session.",
+    date: "2026-11",
+    title: "“Going global + AI” offline practice salon, session 3 — now enrolling",
+    desc: "December 17 (Thursday) 13:00–17:30, four speakers teaching only the playbooks they are running right now, ¥1,980 per person, only 20 seats, including a tool kit and one post-session 1v1 diagnosis.",
+  },
+  {
+    date: "2026-11",
+    title: "Session 2 recap: three speakers, 20 seats, closed-door teardown",
+    desc: "On site on November 19: hit-product methodology, the 100M-CNY path to a subcategory, and a hands-on Codex video session — every attendee took home a ¥199 export resource pack.",
   },
   {
     date: "2026-09",

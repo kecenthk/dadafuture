@@ -6,7 +6,7 @@ export const trainingCopy = {
   meta: {
     title: "出海 + AI 实战沙龙｜企业 AI 内训 · 主理人 IP 训练营 · 培训赋能",
     description:
-      "搭搭未来赋能体系：「主理人 IP + 轻实体」培训、企业 AI 应用专项培训、「出海 + AI」线下实战沙龙（第 2 期 11 月 19 日 13:00–17:30，¥1980/人，仅 20 席，含 30 天 1 次 1v1 诊断）。以实战指导实战，以游学眼见为实，只讲正在跑的打法。",
+      "搭搭未来赋能体系：「主理人 IP + 轻实体」培训、企业 AI 应用专项培训、「出海 + AI」线下实战沙龙（第 3 期 12 月 17 日 13:00–17:30，四位主讲，¥1980/人，仅 20 席，含课后 1 次 1v1 诊断）。以实战指导实战，以游学眼见为实，只讲正在跑的打法。",
   },
   hero: {
     title: "培训赋能",
@@ -87,7 +87,7 @@ export const trainingCopy = {
   salon: {
     latestTemplate: "最新一期 · {edition}",
     title: "「出海 + AI」线下实战沙龙",
-    desc: "只讲自己正在跑的打法，不讲行业趋势 —— 三位主讲，20 席闭门",
+    desc: "只讲自己正在跑的打法，不讲行业趋势 —— 四位主讲，20 席闭门",
     timeLabel: "时间",
     placeLabel: "地点",
     seatsLabel: "席位",
@@ -95,11 +95,17 @@ export const trainingCopy = {
     feeTemplate: "¥{price}/人",
     venueNote: "签到后统一引导入场",
     images: [
+      { src: "/salon/salon-3-invite.png", alt: "第 3 期「出海 + AI」实战沙龙诚邀" },
+      { src: "/salon/salon-3-speakers.png", alt: "第 3 期四位主讲阵容" },
+    ],
+    speakersTitle: "四位主讲 · 只讲自己正在跑的打法",
+    recapTitle: "上期回顾 · 第 2 期",
+    recapDesc: "11 月 19 日第 2 期现场：三位主讲、20 席闭门拆解，爆品方法论、细分品类亿级路径、Codex 做视频，到场带走价值 199 元外贸资料包。",
+    recapImages: [
       { src: "/salon/salon-2-invite.png", alt: "第 2 期「出海 + AI」实战沙龙诚邀" },
       { src: "/salon/salon-2-speakers.png", alt: "第 2 期主讲阵容" },
-      { src: "/salon/salon-2-recap.png", alt: "往期沙龙现场" },
+      { src: "/salon/salon-2-recap.png", alt: "第 2 期沙龙现场" },
     ],
-    speakersTitle: "三位主讲 · 只讲自己正在跑的打法",
     agendaTitle: "当天流程",
     perksTitle: "到场即得（价值 199 元外贸资料包 · 6 项）",
     signupCta: "报名 / 咨询沙龙席位",

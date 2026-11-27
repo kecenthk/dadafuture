@@ -101,7 +101,7 @@ export default async function TrainingPage() {
             ))}
           </div>
 
-          {/* 第 2 期宣传图：一行三张 */}
+          {/* 第 3 期宣传图：诚邀 + 四位主讲 */}
           <div className="mx-auto mt-6 grid max-w-[1180px] grid-cols-3 gap-3 md:gap-5">
             {copy.salon.images.map((p) => (
               // eslint-disable-next-line @next/next/no-img-element
@@ -120,7 +120,7 @@ export default async function TrainingPage() {
             <h3 className="text-center text-lg font-bold text-brand-900">
               {copy.salon.speakersTitle}
             </h3>
-            <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {SALON.speakers.map((s) => (
                 <div
                   key={s.no}
@@ -216,6 +216,26 @@ export default async function TrainingPage() {
                   .replace("{name}", BRAND.contactName)
                   .replace("{title}", BRAND.contactTitle)}
               </p>
+            </div>
+          </div>
+
+          {/* 上期回顾 · 第 2 期 */}
+          <div className="mt-8 rounded-[14px] bg-white p-6 ring-1 ring-line md:p-8">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+              <h3 className="font-bold text-brand-900">{copy.salon.recapTitle}</h3>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-sub">{copy.salon.recapDesc}</p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {copy.salon.recapImages.map((p) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={p.src}
+                  src={p.src}
+                  alt={p.alt}
+                  className="w-full rounded-[10px] ring-1 ring-line"
+                  loading="lazy"
+                />
+              ))}
             </div>
           </div>
         </div>

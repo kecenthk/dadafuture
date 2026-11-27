@@ -461,7 +461,7 @@ function Training({ copy, data, href, salonCopy }: SectionProps) {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {salonCopy.images.map((p) => (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -476,7 +476,7 @@ function Training({ copy, data, href, salonCopy }: SectionProps) {
           </div>
           <div className="mt-10">
             <h4 className="text-center text-lg font-bold text-brand-900">{salonCopy.speakersTitle}</h4>
-            <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {SALON.speakers.map((s) => (
                 <div
                   key={s.no}
